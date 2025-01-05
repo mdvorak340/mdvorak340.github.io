@@ -1,0 +1,70 @@
+:root {
+  --main-content-width:75%;
+  --main-content-padd:8px;
+}
+
+body {
+  text-align:center;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+main-content {
+  display:block;
+
+  text-align:left;
+  padding:var(--main-content-padd);
+
+  float:left;
+  width:var(--main-content-width);
+}
+
+side-bar {
+  display:block;
+
+  float:left;
+  width:calc(100% - var(--main-content-width) - 2 * var(--main-content-padd));
+}
+
+@media (width < 800px) {
+  main-content,
+  side-bar {
+    float:none;
+    width:100%;
+  }
+}
+
+wiki-profile {
+  display:block;
+
+  border:1px solid black;
+
+  width:fit-content;
+  max-width:512px;
+  margin:auto;
+}
+
+wiki-profile > img {
+  width:60%;
+}
+
+wiki-profile > table {
+  width:fit-content;
+  margin:4px auto;
+
+  border-collapse:collapse;
+}
+
+wiki-profile > table td {
+  border-top:1px solid black;
+
+  text-align:right;
+  padding:4px 8px;
+  font-style:italic;
+}
+
+wiki-profile > table td + td {
+  border-left:1px dotted grey;
+
+  text-align:left;
+  font-style:normal;
+}
