@@ -15,7 +15,8 @@ main-content {
 
   text-align:left;
   padding:var(--main-content-padd);  /* use a variable like this */
-
+  margin-bottom:8px;
+  
   float:left;  /* go as leftmost as possible, and line up with other float:left elements */
   width:var(--main-content-width);
 }
@@ -23,6 +24,8 @@ main-content {
 side-bar {
   display:block;
 
+  margin-bottom:8px;
+  
   float:left;  /* go to the left and try and be in the same line as main-content, if you both fit */
 
   /* in order to guarentee both side-bar and main-content fit on the same line,
@@ -54,9 +57,10 @@ wiki-profile {
   display:block;
 
   border:1px solid black;
+  padding:4px;
+  margin:4px;
 
   width:fit-content;
-  max-width:512px;
   margin:auto;  /* center the wiki-profile inside the side-bar */
 }
 
@@ -78,6 +82,7 @@ wiki-profile table td {  /* all columns within all tables within wiki-profile's 
   border-top:1px solid black;
 
   padding:4px 8px;  /* y, then x */
+  vertical-align:top;
 
   /* these 2 apply at first to all columns in the table, but then are
    * overwritten later for some columns */
@@ -99,4 +104,28 @@ wiki-profile table td + td {
   /* overwrite the text changes in the previous style block */
   text-align:left;
   font-style:normal;
+}
+
+quote-environment {
+  display:block;
+  
+  max-width:512px;
+  
+  background-color:lightgrey;
+  padding:8px;
+  font-family:'Courier new', Courier, monotype;
+  border-radius:8px;
+}
+
+quote-environment q {
+  display:block;
+  
+  max-width:70%;
+  
+  padding:4px 0px;
+}
+
+quote-environment q[speaker="md"] {
+  text-align:right;
+  margin-left:30%;
 }
