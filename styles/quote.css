@@ -1,0 +1,28 @@
+wiqi-quote {
+  display:block;
+
+  background-color:lightgrey;
+  padding:8px;
+  font-family:'Courier new', Courier, monospace;
+  border-radius:8px;
+
+  margin-bottom:8px;
+}
+
+wiqi-quote q {
+  display:block;
+
+  padding:4px 0px;
+}
+
+wiqi-quote q[speaker="1"] {
+  margin-left:0%;
+}
+
+wiqi-quote q[speaker="2"] {
+  margin-left:15%;
+}
+
+wiqi-quote q[speaker="3"] {
+  margin-left:30%;
+}

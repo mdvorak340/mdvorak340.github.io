@@ -1,0 +1,24 @@
+@import url('./nav.css');
+@import url('./page.css');
+@import url('./profile.css');
+@import url('./quote.css');
+
+:root {
+  /* variables, must start with a `--` */
+  --wiqi-nav-font-size:14pt;
+
+  --wiqi-page-width:700px;
+  --wiqi-side-bar-width:256px;
+  --wiqi-padding:8px;
+}
+
+body {
+  /* applies to all HTML in the body (everything) */
+  text-align:center;  /* center text by default */
+  font-family:Arial, Helvetica, sans-serif;  /* if font isn't found uses the next in line */
+  background-color:lightgrey;
+}
+
+p {
+  margin-top:0px;
+}
