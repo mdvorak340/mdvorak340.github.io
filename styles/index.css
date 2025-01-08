@@ -1,21 +1,19 @@
-@import url('./nav.css');
-@import url('./page.css');
-@import url('./profile.css');
-@import url('./quote.css');
+@import url('./wiqi-nav.css');
+@import url('./wiqi-page.css');
+@import url('./wiqi-profile.css');
+@import url('./wiqi-quote.css');
 
 :root {
-  /* variables, must start with a `--` */
   --wiqi-nav-font-size:14pt;
 
   --wiqi-page-width:700px;
+  --wiqi-page-padding:8px;
   --wiqi-side-bar-width:256px;
-  --wiqi-padding:8px;
 }
 
 body {
-  /* applies to all HTML in the body (everything) */
-  text-align:center;  /* center text by default */
-  font-family:Arial, Helvetica, sans-serif;  /* if font isn't found uses the next in line */
+  text-align:center;
+  font-family:Arial, Helvetica, sans-serif;
   background-color:lightgrey;
 }
 

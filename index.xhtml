@@ -1,44 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>Wiqipedia: The Encyclopedia</title>
-  <meta name="author" content="Mozzie Dvorak (mdvorak.personal@gmail.com)" />
-  <meta name="description" content="little wiki demo" />
+  <head>
+    <meta http-equiv="Content-Type"
+          content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Wiqipedia: The Encyclopedia</title>
+    <meta name="author" content="Mozzie Dvorak (mdvorak.personal@gmail.com)" />
+    <meta name="description" content="Wiki Demo" />
 
-  <link rel="stylesheet" href="./styles/index.css" />
-  <script defer="true" type="module" src="./javascript/index.js"></script>
-</head>
-<body>
-  <wiqi-nav>
-    <a href="./index.xhtml?page=mozzie">About Me</a>
-    ·  <!-- U+00B7 -->
-    <a href="./index.xhtml?page=code">About The Site</a>
-    ·
-    <a href="./index.xhtml?page=art">My Art</a>
-  </wiqi-nav>
+    <link rel="shortcut icon" href="./images/funky-lil-guy.ico" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <script defer="true" type="module" src="./javascript/index.js"></script>
+  </head>
 
-  <wiqi-page id="error">
-    <wiqi-section>
-      <h1>ERROR: Page not found!</h1>
-      It seems that page doesn't exist... not yet!<br />Or, perhaps not anymore?
-    </wiqi-section>
-  </wiqi-page>
+  <body>
+    <wiqi-nav>
+      <a href="./index.xhtml?page=mozzie">About Me</a>
+      ·  <!-- U+00B7 -->
+      <a href="./index.xhtml?page=code">About The Site</a>
+      ·
+      <a href="./index.xhtml?page=art">My Art</a>
+    </wiqi-nav>
 
-  <wiqi-page id="home">
-    <wiqi-section>
-      <h1>Wiqipedia</h1>
-      This wiki is a little demo site to practice making websites using
-      nothing but raw <abbr title="Hypertext Markup Language">HTML</abbr>,
-      <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript. 
-      It has few pages — <!-- U+2014 --> including one about how we wrote
-      this site — and features styles that react based on screen size and
-      a macro-like system for reusing HTML snippets.
-    </wiqi-section>
-  </wiqi-page>
+    <wiqi-page id="error">
+      <wiqi-section>
+        <h1>ERROR: Page not found!</h1>
 
-  <wiqi-js-target id="xhttp-page" />
-</body>
+        It seems that page doesn't exist... not yet!
+        <br />
+        Or, perhaps not anymore?
+      </wiqi-section>
+    </wiqi-page>
+
+    <wiqi-page id="home">
+      <wiqi-section>
+        <h1>Wiqipedia</h1>
+
+        <wiqi-content id="summary">
+          This wiki is a little demo site to practice making websites using
+          nothing but raw <abbr title="Hypertext Markup Language">HTML</abbr>,
+          <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript.  It
+          has few pages — <!-- U+2014 --> including one about how we wrote this
+          site — and features styles that react based on screen size and a
+          macro-like system for reusing HTML snippets.  
+        </wiqi-content>
+      </wiqi-section>
+    </wiqi-page>
+
+    <wiqi-js-target id="xhttp-page" />
+  </body>
 </html>

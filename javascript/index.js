@@ -1,6 +1,6 @@
 /**
- * Main scripts for index.xhtml of Wiqipedia.  Loads xhttp to fill includes
- * and loads the page passed via URL search paramaters.
+ * Main scripts for index.xhtml of Wiqipedia.  Loads xhttp to fill includes and
+ * loads the page passed via URL search paramaters.
  * @author Mozzie Dvorak
  */
 
@@ -83,20 +83,25 @@ function fillWiqiIncludes(element = document) {
 
 /**
  * Sets the inner HTML of the given element to the contents fetched from the
- * XHTML file located at the given xhttp path.  Calls the success callback on
- * a success, and the error callback on a failure.
- * @param {Element} element The outer element that will be filled with the xhttp
- * content.
+ * XHTML file located at the given xhttp path.  Calls the success callback on a
+ * success, and the error callback on a failure.
+ * @param {Element} element The outer element that will be filled with the
+ * xhttp content.
  * @param {string} xhttpPath The path to the xhttp content within the xhttp
- * folder.  The path starts within the xhttp folder and does not include a
- * file extension.
+ * folder.  The path starts within the xhttp folder and does not include a file
+ * extension.
  * @param {NullCallback} successCallBack The callback function called on a
  * success.  Defaults to () => null.
  * @param {NullCallback} errorCallBack The callback function called on a
  * failure.  Defaults to () => null.
  * @returns {null}
  */
-function fillWithXHttp(element, xhttpPath, successCallBack = () => null, errorCallBack = () => null) {
+function fillWithXHttp(
+  element,
+  xhttpPath,
+  successCallBack = () => null,
+  errorCallBack = () => null
+) {
   if (!xhttpPath) {
     console.warn('??? No path given to include ' + element);
     return;
