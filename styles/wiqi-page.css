@@ -14,24 +14,22 @@ wiqi-page[open] {
   display:block;
 }
 
-wiqi-section {
-  display:block;
-
+wiqi-page section {
   max-width:var(--wiqi-page-width);
   margin:auto;
 
   overflow:auto;
 }
 
-wiqi-section > h1,
-wiqi-section > h2 {
+wiqi-page section > h1,
+wiqi-page section > h2 {
   border-bottom:1px solid black;
   width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
   text-align:left;
   margin:var(--wiqi-page-padding);
 }
 
-wiqi-section > h1 {
+wiqi-page section > h1 {
   text-align:center;
 }
 

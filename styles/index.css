@@ -1,4 +1,3 @@
-@import url('./wiqi-nav.css');
 @import url('./wiqi-page.css');
 @import url('./wiqi-profile.css');
 @import url('./wiqi-quote.css');
@@ -19,4 +18,27 @@ body {
 
 p {
   margin-top:0px;
+}
+
+nav {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+
+  width:100%;
+  text-align:left;
+  padding:var(--wiqi-page-padding);
+
+  background-color:white;
+  border-bottom:1px solid black;
+}
+
+nav a {
+  font-size:var(--wiqi-nav-font-size);
+  text-decoration:none;
+}
+
+details:hover {
+  cursor:pointer;
 }

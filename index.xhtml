@@ -17,32 +17,26 @@
   </head>
 
   <body>
-    <wiqi-nav>
-      <a href="./index.xhtml?page=mozzie" title="./index.xhtml?page=mozzie">
-        About Me
-      </a>
-      ·  <!-- U+00B7 -->
-      <a href="./index.xhtml?page=code" title="./index.xhtml?page=code">
-        About The Site
-      </a>
+    <nav>
+      <a href="?page=mozzie" title="?page=mozzie">About Me</a>
+      · <!-- U+00B7 -->
+      <a href="?page=code" title="?page=code">About The Site</a>
       ·
-      <a href="./index.xhtml?page=art" title="./index.xhtml?page=art">
-        My Art
-      </a>
-    </wiqi-nav>
+      <a href="?page=art" title="?page=art">My Art</a>
+    </nav>
 
     <wiqi-page id="error">
-      <wiqi-section>
+      <section>
         <h1>ERROR: Page not found!</h1>
 
         It seems that page doesn't exist... not yet!
         <br />
         Or, perhaps not anymore?
-      </wiqi-section>
+      </section>
     </wiqi-page>
 
     <wiqi-page id="home">
-      <wiqi-section id="home-summary">
+      <section id="home-summary">
         <h1>Wiqipedia</h1>
 
         <wiqi-content>
@@ -53,7 +47,13 @@
           site — and features styles that react based on screen size and a
           macro-like system for reusing HTML snippets.  
         </wiqi-content>
-      </wiqi-section>
+
+        <wiqi-side-bar>
+          <wiqi-profile>
+            <h2>Welcome!</h2>
+          </wiqi-profile>
+        </wiqi-side-bar>
+      </section>
     </wiqi-page>
 
     <wiqi-js-target id="xhttp-page" />
