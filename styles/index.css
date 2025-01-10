@@ -4,6 +4,8 @@
   --wiqi-page-width:800px;
   --wiqi-page-padding:8px;
   --wiqi-side-bar-width:256px;
+
+  --wiqi-monospace-font:'Courier new', Courier, monospace;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -35,6 +37,31 @@ details[open] {
 summary:hover {
   width:fit-content;
   cursor:pointer;
+}
+
+li {
+  margin:4px 0px;
+}
+
+code {
+  background-color:lightgrey;
+  font-family:var(--wiqi-monospace-font);
+}
+
+kbd {
+  border:1px solid black;
+  background-color:#EEE;
+  border-radius:4px;
+  padding:0px 2px;
+  font-family:var(--wiqi-monospace-font);
+}
+
+code > pre {
+  background-color:lightgrey;
+  font-family:var(--wiqi-monospace-font);
+  padding:8px;
+  border-radius:8px;
+  overflow:auto;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -106,6 +133,16 @@ wiqi-page section > h1 {
 wiqi-page section > h2::before {
   content:'§ ';
   color:grey;
+}
+
+wiqi-page section > details[open] {
+  border:none;
+}
+
+wiqi-page section > details > summary {
+  text-align:left;
+  font-size:14pt;
+  font-weight:bold;
 }
 
 wiqi-content {
@@ -198,7 +235,7 @@ wiqi-quote {
 
   background-color:lightgrey;
   padding:8px;
-  font-family:'Courier new', Courier, monospace;
+  font-family:var(--wiqi-monospace-font);
   border-radius:8px;
 
   margin-bottom:8px;

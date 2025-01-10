@@ -140,6 +140,136 @@
     </wiqi-side-bar>
   </section>
 
+  <section id="code-html-xhtml">
+    <details>
+      <summary>XHTML</summary>
+
+      <wiqi-content>
+        <p>
+          You might have noticed a little discrepency when reading through this
+          site — we state that we only use plain old HTML, but if you check the
+          file extensions, they say <em>X</em>HTML!  Is XHTML some weird HTML
+          framework that changes the way you wrote the page?
+        </p>
+        <p>
+          Not quite.  When the HTML you write gets read by a browser, it is
+          parsed by some computer program to turn the code into graphics — but
+          this program isn't very strict.  There is, however, an
+          <em>alternate</em> parser based on
+          <abbr title="eXtensible Markup Language">XML</abbr>, another project
+          of W3C that is structured similarly to HTML.  This XML parser is
+          very exact about what it expects, and if the file isn't 'well-formed'
+          it gives an error.
+        </p>
+        <p>
+          When you use XHTML (or "the XML syntax for HTML" as it is now called)
+          you are informing the browser to read your HTML code like it is an
+          XML document.  This means if the parser finds an error in your code,
+          it <em>won't</em> render the page at all, while the standard HTML
+          will just take a guess at what you <em>probably</em> meant and render
+          the page anyway — without giving you any indication that it found an
+          error.
+        </p>
+        <p>
+          There are a few other changes that XHTML makes, but almost all of it
+          is commonly taught as good practice for HTML anyway.  Good HTML is
+          already 90% of the way to XHTML, and most XHTML is also valid HTML —
+          if you code it right, all of it is! (referred to as 'polygot').  This
+          wiki was originally just HTML, but only had to have one line changed
+          to make it valid XHTML, for instance.
+        </p>
+        <p>
+          The list of rules XHTML imposes on HTML — most of which you already
+          follow! — are as below:
+          <ul>
+            <li>
+              You most always close your tags — in HTML, if you forget a
+              <code lang="html">&lt;p&gt;</code>'s closing
+              <code lang="html">&lt;/p&gt;</code> the parser will insert its
+              own closing tag where it thinks one belongs, or just apply
+              <code lang="html">p</code> styles to everything after.
+            </li>
+            <li>
+              All tags must be lower-case only.
+            </li>
+            <li>
+              All attribute values must be quoted — no
+              <code lang="html"
+                  >&lt;a href=https://en.wikipedia.org/wiki/Cat&gt;</code>.
+              Also, no empty boolean attributes:
+              Use <code lang="html">&lt;details open="true"&gt;</code>, not
+              <code lang="html">&lt;details open&gt;</code>.
+            </li>
+            <li>
+              All tags must be closed, even "self-closing" ones like
+              <code lang="html">img</code> or <code lang="html">link</code>.
+              This is done by using a <kbd>/</kbd> at the end of the tag, e.g.
+              <code lang="html">&lt;img src="" alt="" title="" /&gt;</code>.
+            </li>
+            <li>
+              All images must have alt text (the <code lang="html">alt</code>
+              attribute).
+            </li>
+            <li>
+              All pages need a title.
+            </li>
+            <li>
+              The only character entities (<code>&amp;foo;</code> symbols) that
+              are defined are <code>amp</code> (<kbd>&amp;</kbd>),
+              <code>lt</code> (<kbd>&lt;</kbd>), <code>gt</code>
+              (<kbd>&gt;</kbd>), <code>apos</code> (<kbd>&apos;</kbd>), and
+              <code>quot</code> (<kbd>&quot;</kbd>). Everything else should be
+              the actual UTF-8 character, not a stand-in.
+            </li>
+          </ul>
+        </p>
+        <p>
+          The advantages of XHTML are that it:
+          <ul>
+            <li>
+              Loads faster (doesn't have to do all the error-handling overhead
+              HTML does).
+            </li>
+            <li>
+              Saves you from making and missing simple errors that mess with
+              site content, and in general forces you to write better code.
+            </li>
+            <li>
+              Is compatible with anything that uses XML — for instance, the
+              <code lang="js">XMLHttpRequest</code> JavaScript object used to
+              query the very page you're reading!
+            </li>
+          </ul>
+        </p>
+        <p>
+          In order to make your page use the XHTML5 parser (available wherever
+          HTML5 is, which at the moment is <em>the entire web</em>) you need
+          to change the file extension to <code>.xhtml</code> and alter a bit
+          of the page preamble:
+        </p>
+        <code lang="html">
+<pre>&lt;!DOCTYPE html&gt;
+
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="Content-Type"
+          content="application/xhtml+xml; charset=UTF-8" /&gt;
+
+    &lt;title&gt;Page With An XHTML Header&lt;/title&gt;
+    ...</pre>
+        </code>
+        <p>
+          This links to the authority on what is and isn't valid XHTML (the
+          link) and tells the browser to read the page as an XHTML/XML
+          application, along with specifiying a character set while we're at
+          it.
+        </p>
+      </wiqi-content>
+    </details>
+  </section>
+
   <section id="code-css">
     <h2>Cascading Style Sheets</h2>
 
