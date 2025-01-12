@@ -4,7 +4,11 @@
  * @author Mozzie Dvorak
  */
 
-main();
+if (document.readyState != 'loading') {
+  main();
+} else {
+  document.addEventListener('DOMContentLoaded', main);
+}
 
 function main() {
   /**
