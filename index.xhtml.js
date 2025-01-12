@@ -6,9 +6,7 @@
 
 main();
 
-async function main() {
-  await new Promise(r => setTimeout(r, 2000));
-
+function main() {
   /**
    * The search parameters within the URL, e.g. ?page=home
    * @type {URLSearchParams}
