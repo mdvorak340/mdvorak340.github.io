@@ -4,32 +4,36 @@
  * @author Mozzie Dvorak
  */
 
-/**
- * The search parameters within the URL, e.g. ?page=home
- * @type {URLSearchParams}
- */
-const urlParams = new URLSearchParams(window.location.search);
+main();
 
-/**
- * The target container that will hold the page loaded via xhttp.
- * @type {Element}
- */
-const xhttpPage = document.querySelector('wiqi-js-target#xhttp-page');
+function main() {
+  /**
+   * The search parameters within the URL, e.g. ?page=home
+   * @type {URLSearchParams}
+   */
+  const urlParams = new URLSearchParams(window.location.search);
 
-fillWiqiIncludes();
+  /**
+   * The target container that will hold the page loaded via xhttp.
+   * @type {Element}
+   */
+  const xhttpPage = document.querySelector('wiqi-js-target#xhttp-page');
 
-if (!urlParams.has('page') || urlParams.get('page') == 'home') {
-  openPage('home');
-} else if (xhttpPage) {
-  let pageId = urlParams.get('page');
-  fillWithXHttp(
-    xhttpPage,
-    `pages/${pageId}`,
-    () => { openPage(pageId); fillWiqiIncludes(xhttpPage); },
-    () => openPage('error')
-  );
-} else {
-  console.error('!!! xhttp page is undefined');
+  fillWiqiIncludes();  // Start loading includes.
+
+  if (!urlParams.has('page') || urlParams.get('page') == 'home') {
+    openPage('home');
+  } else if (xhttpPage) {
+    let pageId = urlParams.get('page');
+    fillWithXHttp(
+      xhttpPage,
+      `pages/${pageId}`,
+      () => { openPage(pageId); fillWiqiIncludes(xhttpPage); },
+      () => openPage('error')
+    );
+  } else {
+    console.error('!!! xhttp page is undefined');
+  }
 }
 
 /**
@@ -107,6 +111,10 @@ function fillWithXHttp(
   successCallBack = () => null,
   errorCallBack = () => null
 ) {
+  if (!element) {
+    console.warn('??? No element given to include ' + xhttpPath);
+    return;
+  }
   if (!xhttpPath) {
     console.warn('??? No path given to include ' + element);
     return;
