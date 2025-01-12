@@ -16,16 +16,20 @@ const urlParams = new URLSearchParams(window.location.search);
  */
 const xhttpPage = document.querySelector('wiqi-js-target#xhttp-page');
 
+fillWiqiIncludes();
+
 if (!urlParams.has('page') || urlParams.get('page') == 'home') {
   openPage('home');
-} else {
-  let targetPage = urlParams.get('page');
+} else if (xhttpPage) {
+  let pageId = urlParams.get('page');
   fillWithXHttp(
     xhttpPage,
-    `pages/${targetPage}`,
-    () => { openPage(targetPage); fillWiqiIncludes(); },
-    () => { openPage('error'), fillWiqiIncludes(); }
+    `pages/${pageId}`,
+    () => { openPage(pageId); fillWiqiIncludes(xhttpPage); },
+    () => openPage('error')
   );
+} else {
+  console.error('!!! xhttp page is undefined');
 }
 
 /**
@@ -45,6 +49,7 @@ function openPage(id) {
   let page = document.querySelector(`wiqi-page#${id}`);
 
   if (!page) {
+    console.error('!!! page that does not exist was opened: ' + id);
     return false;
   }
 
