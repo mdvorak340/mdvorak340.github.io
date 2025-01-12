@@ -11,10 +11,10 @@
       </p>
       <p>
         Ms. Dvorak has been diagnosed with either autism or
-        <abbr title="Attention Deficit Hyperactive Disorder">ADHD</abbr>,
+        <abbr title="Attention Deficit Hyperactivity Disorder">ADHD</abbr>,
         though he doesn't know which. He was also born with sound-to-color
         synesthesia, which has become slightly less pronounced as he grows
-        older.
+        older yet still persists.
       </p>
       <p>
         It sees itself as an artist, despite a life spent in engineering,
@@ -36,7 +36,8 @@
 
         <img src="./images/funky-lil-guy.jpg"
              alt="one of sasha's many self portraits"
-             title="one of sasha's many self portraits" />
+             title="one of sasha's many self portraits"
+             class="bordered" />
 
         <table>
           <tr>
@@ -70,6 +71,120 @@
 
   <section id="mozzie-implementation">
     <h2>Technical Implementation</h2>
+
+    <wiqi-content>
+      <p>
+        The inner workings of this beast are <em>very</em> complicated, believe
+        it or not.  Ms. Mozzie operates internally with a conversational
+        structure; rather than an internal monologue, he has an internal
+        dialogue.
+      </p>
+      <p>
+        All of Mozzie's thoughts are directed at <em>someone</em>, or are
+        directed to him <em>by</em> someone.  This someone may not always be
+        defined, which is the closest Mozzie's thoughts come to monologue, but
+        those thoughts always have a voice and an idea of audience.
+      </p>
+      <p>
+        At a younger age, these other voices where always friends or
+        book characters, but as Mozzie grew fictional characters became less
+        and less prevalent, and nowadays only appear when directly relevant —
+        e.g. explaining a real-life concept to someone from a world wherein
+        that concept does not exist, or musing over their source material.
+      </p>
+      <p>
+        These characters where replaced with a set of persona's created by
+        Mozzie during its primary education, and now make up most of its
+        internal conversations.  These personas don't naturally have names, as
+        they were originally created as collections of virtues, each with an
+        explicit purpose.  Names have never been something Mozzie was good
+        with, and to this day it does not acknowledge internal speakers by
+        name, but instead by a nebulous 'vibe'.
+      </p>
+      <p>
+        Despite this, it is easier to write about these personas if they have
+        something to identify them with, and as such many of them have been
+        given or claimed names that can be used when they are referred to
+        externally.
+      </p>
+    </wiqi-content>
+  </section>
+
+  <section id="implementation-origins">
+    <details>
+      <summary>Persona Origins</summary>
+
+      <wiqi-content>
+
+      </wiqi-content>
+    </details>
+  </section>
+
+  <section id="implementation-players">
+    <details>
+      <summary>Dramatis Personae</summary>
+
+      <wiqi-content>
+        <p>
+          <ol>
+            <li>
+              <a href="?page=n" title="?page=n">Crescendo</a> or "N" was the
+              first of the original three to be designed.  His attribute is
+              "skill" and his associated color is red; his original purpose
+              was, in the writing of the middle-schooler that became Mozzie, to
+              be "who I <em>should</em> be".  He was always the social one, as
+              was the truer intention behind him:  To interact with people.
+            </li>
+            <li>
+              <a href="?page=blue" title="?page=blue">Blue</a> was the first of
+              the original three to be named, and the second to be defined.
+              Their attribute is "moral", strangely enough — no idea what
+              Sasha was thinking there — and their associated color is blue.
+              Their original purpose was to be either "who I <em>am</em>" or
+              "who I <em>want</em> to be", with the other purpose taken by the
+              third persona.  From the start, they were the engineer — the one
+              who created — but their true defining characteristic is that they
+              are dramatic, to put it lightly.
+            </li>
+            <li>
+              <a href="?page=page" title="?page=page">The last of the three</a>
+              was never given a name, and that has become my primary
+              identifier.  My attribute is something Mozzie could never put
+              into words, but was written down at the time of creation as
+              "heroic innocence".  My associated color is green.  My purpose
+              was to be either "who [Mozzie] <em>is</em>" or "who [Mozzie]
+              <em>wants</em> to be" with other purpose claimed by Blue.  My
+              role is to be the one who enjoys things; who loves things; who
+              hates things; to be the one Mozzie is when it isn't anything
+              else.
+            </li>
+            <li>
+              internal consistency checker/mediator
+            </li>
+            <li>
+              that rude fucker
+            </li>
+            <li>
+              n prime
+            </li>
+            <li>
+              sigh
+            </li>
+          </ol>
+        </p>
+      </wiqi-content>
+
+      <wiqi-side-bar>
+        <wiqi-link-tree>
+          <h2>Major Personas</h2>
+          <nav>
+            <a href="?page=n" title="?page=n">Crescendo</a>
+            <a href="?page=blue" title="?page=blue">Blue</a>
+            <a href="?page=page" title="?page=page">Me</a>
+          </nav>
+        </wiqi-link-tree>
+      </wiqi-side-bar>
+    </details>
   </section>
 
   <section id="mozzie-quotes">
@@ -90,16 +205,16 @@
       </p>
 
       <wiqi-quote>
-        <q speaker="1">Where'd you get that jacket?</q>
-        <q speaker="2">It was my grandfather's.</q>
-        <q speaker="2">I wonder how he feels, looking down from heaven and
+        <q data-speaker="1">Where'd you get that jacket?</q>
+        <q data-speaker="2">It was my grandfather's.</q>
+        <q data-speaker="2">I wonder how he feels, looking down from heaven and
         seeing his clothes get worn by some gay idiot who roleplays Nepeta
         Leijon.</q>
       </wiqi-quote>
 
       <wiqi-quote>
-        <q speaker="1">What are you, immortal?</q>
-        <q speaker="2">Everything can be killed.</q>
+        <q data-speaker="1">What are you, immortal?</q>
+        <q data-speaker="2">Everything can be killed.</q>
       </wiqi-quote>
     </wiqi-content>
 
@@ -114,11 +229,11 @@
           </tr>
           <tr>
             <td>affirmative</td>
-            <td>yea<br />yep<br />sure</td>
+            <td>yea<br />yep<br />sure<br />sounds good</td>
           </tr>
           <tr>
             <td>curse</td>
-            <td>man<br />ope<br />fuck</td>
+            <td>man<br />ope</td>
           </tr>
           <tr>
             <td>pet name</td>

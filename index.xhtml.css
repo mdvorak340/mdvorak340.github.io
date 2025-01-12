@@ -6,7 +6,22 @@
   --wiqi-side-bar-width:256px;
 
   --wiqi-monospace-font:'Courier new', Courier, monospace;
+  --wiqi-border:1px solid var(--wiqi-text);
+
+  --wiqi-text:#333333;
+  --wiqi-text-2:#777777;
+  --wiqi-bg:#fef9f1;
+  --wiqi-bg-2:#EEEEEE;
+  --wiqi-bg-code:#DDDDDD;
 }
+
+/* :root.dark { */
+/*   --wiqi-text:#FFFFFF; */
+/*   --wiqi-text-2:#EEEEEE; */
+/*   --wiqi-bg:#000000; */
+/*   --wiqi-bg-2:#555555; */
+/*   --wiqi-bg-code:#777777; */
+/* } */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * General
@@ -15,11 +30,25 @@
 body {
   text-align:center;
   font-family:Arial, Helvetica, sans-serif;
-  background-color:lightgrey;
+  background-color:var(--wiqi-bg-2);
+  color:var(--wiqi-text);
+}
+
+*.bordered {
+  border:var(--wiqi-border);
+  border-radius:8px;
 }
 
 p {
-  margin-top:0px;
+  margin:0px;
+}
+
+p + p {
+  margin-top:8px;
+}
+
+a::after {
+  content:'›'
 }
 
 a[rel="external"]::after {
@@ -31,7 +60,7 @@ details {
 }
 
 details[open] {
-  border:1px solid lightgrey;
+  border:1px solid var(--wiqi-text-2);
 }
 
 details[open] > summary {
@@ -42,42 +71,42 @@ summary:hover {
   cursor:pointer;
 }
 
+ul, ol {
+  margin-top:0px;
+}
+
 li {
   margin:8px 0px;
 }
 
 code {
-  background-color:lightgrey;
+  background-color:var(--wiqi-bg-code);
   font-family:var(--wiqi-monospace-font);
 }
 
 kbd {
-  border:1px solid black;
-  background-color:#EEE;
+  border:var(--wiqi-border);
+  background-color:var(--wiqi-bg-2);
   border-radius:4px;
   padding:0px 2px;
   font-family:var(--wiqi-monospace-font);
+  margin:0px 2px;
 }
 
 code > pre {
-  background-color:lightgrey;
+  background-color:var(--wiqi-bg-code);
   font-family:var(--wiqi-monospace-font);
   padding:8px;
   border-radius:8px;
   overflow:auto;
-  border:1px solid black;
-}
-
-img.bordered {
-  border:1px solid black;
-  border-radius:8px;
+  border:var(--wiqi-border);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Navbar
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-nav {
+body > nav {
   position:fixed;
   top:0;
   left:0;
@@ -87,16 +116,20 @@ nav {
   padding-top:var(--wiqi-page-padding);
   padding-bottom:var(--wiqi-page-padding);
 
-  background-color:white;
-  border-bottom:1px solid black;
+  background-color:var(--wiqi-bg);
+  border-bottom:var(--wiqi-border);
 }
 
-nav a {
+body > nav a {
   font-size:var(--wiqi-nav-font-size);
   text-decoration:none;
 }
 
-nav a + a::before {
+body > nav a::after {
+  content:none;
+}
+
+body > nav a + a::before {
   content:'| ';
 }
 
@@ -110,7 +143,7 @@ wiqi-page {
   margin:auto;
   margin-top:calc(var(--wiqi-nav-font-size) + 3 * var(--wiqi-page-padding));
 
-  background-color:white;
+  background-color:var(--wiqi-bg);
   min-height:95vh;
 
   overflow:auto;
@@ -129,7 +162,7 @@ wiqi-page section {
 
 wiqi-page section > h1,
 wiqi-page section > h2 {
-  border-bottom:1px solid black;
+  border-bottom:var(--wiqi-border);
   width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
   text-align:left;
   margin:var(--wiqi-page-padding);
@@ -141,7 +174,7 @@ wiqi-page section > h1 {
 
 wiqi-page section > h2::before {
   content:'§ ';
-  color:grey;
+  color:var(--wiqi-text-2);
 }
 
 wiqi-page section > details[open] {
@@ -152,11 +185,11 @@ wiqi-page section > details > summary {
   text-align:left;
   font-size:16pt;
   font-weight:bold;
-  margin:var(--wiqi-page-padding);
+  margin-bottom:var(--wiqi-page-padding);
 }
 
 wiqi-page section > details[open] > summary {
-  border-bottom:1px solid black;
+  border-bottom:var(--wiqi-border);
   width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
 }
 
@@ -204,7 +237,7 @@ wiqi-side-bar {
 wiqi-profile {
   display:block;
 
-  border:1px solid black;
+  border:var(--wiqi-border);
   border-radius:8px;
 
   width:100%;
@@ -226,7 +259,7 @@ wiqi-profile table {
 }
 
 wiqi-profile table td {
-  border-top:1px solid black;
+  border-top:var(--wiqi-border);
 
   padding:4px 8px;
   vertical-align:top;
@@ -236,7 +269,7 @@ wiqi-profile table td {
 }
 
 wiqi-profile table td + td {
-  border-left:1px dotted grey;
+  border-left:1px dotted var(--wiqi-text-2);
 
   text-align:left;
   font-style:normal;
@@ -249,12 +282,12 @@ wiqi-profile table td + td {
 wiqi-quote {
   display:block;
 
-  background-color:lightgrey;
+  background-color:var(--wiqi-bg-2);
   padding:8px;
   font-family:var(--wiqi-monospace-font);
   border-radius:8px;
 
-  margin-bottom:8px;
+  margin-top:8px;
 }
 
 wiqi-quote q {
@@ -263,14 +296,49 @@ wiqi-quote q {
   padding:4px 0px;
 }
 
-wiqi-quote q[speaker="1"] {
+wiqi-quote q[data-speaker="1"] {
   margin-left:0%;
 }
 
-wiqi-quote q[speaker="2"] {
+wiqi-quote q[data-speaker="2"] {
   margin-left:15%;
 }
 
-wiqi-quote q[speaker="3"] {
+wiqi-quote q[data-speaker="3"] {
   margin-left:30%;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * wiqi-link-tree
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+wiqi-link-tree {
+  display:block;
+
+  width:100%;
+  margin:auto;
+
+  overflow:auto;
+}
+
+wiqi-link-tree h2 {
+  text-align:right;
+
+  margin-bottom:0px;
+  padding:0px 8px;
+}
+
+wiqi-link-tree nav {
+  text-align:right;
+
+  margin-bottom:16px;
+  padding:0px 8px;
+
+  border-right:var(--wiqi-border);
+}
+
+wiqi-link-tree nav a {
+  display:block;
+  text-decoration:none;
+  margin-top:4px;
 }

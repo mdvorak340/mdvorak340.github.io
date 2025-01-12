@@ -1,11 +1,11 @@
 /**
  * Main scripts for index.xhtml of Wiqipedia.  Loads xhttp to fill includes and
- * loads the page passed via URL search paramaters.
+ * loads the page passed via URL search parameters.
  * @author Mozzie Dvorak
  */
 
 /**
- * The search paramaters within the URL, e.g. ?page=home
+ * The search parameters within the URL, e.g. ?page=home
  * @type {URLSearchParams}
  */
 const urlParams = new URLSearchParams(window.location.search);
@@ -48,7 +48,7 @@ function openPage(id) {
     return false;
   }
 
-  page.setAttribute('open', 'true');
+  page.setAttribute('open', '');
   if (previousPage) {
     previousPage.removeAttribute('open');
   }
@@ -57,7 +57,7 @@ function openPage(id) {
 }
 
 /**
- * Recursivly fill all wiqi-includes with their xhttp content.
+ * Recursively fill all wiqi-includes with their xhttp content.
  * @param {Element} element The root element within which to search for
  * wiqi-includes.  Defaults to the whole document.
  * @returns {null}
