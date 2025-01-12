@@ -193,12 +193,12 @@
               All tags must be lower-case only.
             </li>
             <li>
-              All attribute values must be quoted — no
-              <code lang="html"
-                  >&lt;a href=https://en.wikipedia.org/wiki/Cat&gt;</code>.
-              Also, no empty boolean attributes:
-              Use <code lang="html">&lt;details open="true"&gt;</code>, not
-              <code lang="html">&lt;details open&gt;</code>.
+              All attribute values must be quoted, and no empty attributes
+              are allowed — even boolean attributes.  Use
+              <code lang="html">&lt;details open="open"&gt;</code> or
+              <code lang="html">&lt;details open=""&gt;</code>, not
+              <code lang="html">&lt;details open=open&gt;</code> or
+              <code lang="html">&lt;details open&gt;</code>
             </li>
             <li>
               All tags must be closed, even "self-closing" ones like
