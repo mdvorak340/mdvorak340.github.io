@@ -184,10 +184,10 @@
           <ul>
             <li>
               You most always close your tags — in HTML, if you forget a
-              <code lang="html">&lt;p&gt;</code>'s closing
-              <code lang="html">&lt;/p&gt;</code> the parser will insert its
-              own closing tag where it thinks one belongs, or just apply
-              <code lang="html">p</code> styles to everything after.
+              <code data-lang="html">&lt;p&gt;</code>'s closing
+              <code data-lang="html">&lt;/p&gt;</code> the parser will insert
+              its own closing tag where it thinks one belongs, or just apply
+              <code data-lang="html">p</code> styles to everything after.
             </li>
             <li>
               All tags must be lower-case only.
@@ -195,27 +195,28 @@
             <li>
               All attribute values must be quoted, and no empty attributes
               are allowed — even boolean attributes.  Use
-              <code lang="html">&lt;details open="open"&gt;</code> or
-              <code lang="html">&lt;details open=""&gt;</code>, not
-              <code lang="html">&lt;details open=open&gt;</code> or
-              <code lang="html">&lt;details open&gt;</code>
+              <code data-lang="html">&lt;details open="open"&gt;</code> or
+              <code data-lang="html">&lt;details open=""&gt;</code>, not
+              <code data-lang="html">&lt;details open=open&gt;</code> or
+              <code data-lang="html">&lt;details open&gt;</code>
             </li>
             <li>
               All tags must be closed, even "self-closing" ones like
-              <code lang="html">img</code> or <code lang="html">link</code>.
-              This is done by using a <kbd>/</kbd> at the end of the tag, e.g.
-              <code lang="html">&lt;img src="" alt="" title="" /&gt;</code>.
+              <code data-lang="html">img</code> or
+              <code data-lang="html">link</code>. This is done by using a
+              <kbd>/</kbd> at the end of the tag, e.g.
+              <code data-lang="html">&lt;br /&gt;</code>.
             </li>
             <li>
-              All images must have alt text (the <code lang="html">alt</code>
-              attribute).
+              All images must have alt text (the
+              <code data-lang="html">alt</code> attribute).
             </li>
             <li>
               All pages need a title.
             </li>
             <li>
-              The only character entities (<code>&amp;foo;</code> symbols) that
-              are defined are <code>amp</code> (<kbd>&amp;</kbd>),
+              The only character entities (<code>&amp;foo;</code> symbols)
+              that are defined are <code>amp</code> (<kbd>&amp;</kbd>),
               <code>lt</code> (<kbd>&lt;</kbd>), <code>gt</code>
               (<kbd>&gt;</kbd>), <code>apos</code> (<kbd>&apos;</kbd>), and
               <code>quot</code> (<kbd>&quot;</kbd>). Everything else should be
@@ -236,8 +237,8 @@
             </li>
             <li>
               Is compatible with anything that uses XML — for instance, the
-              <code lang="js">XMLHttpRequest</code> JavaScript object used to
-              query the very page you're reading!
+              <code data-lang="js">XMLHttpRequest</code> JavaScript object
+              used to query the very page you're reading!
             </li>
           </ul>
         </p>
@@ -247,12 +248,12 @@
           to change the file extension to <code>.xhtml</code> and alter a bit
           of the page preamble:
         </p>
-        <code lang="html">
+        <code data-lang="html">
 <pre>&lt;!DOCTYPE html&gt;
 
 &lt;html xmlns="http://www.w3.org/1999/xhtml"
-      xml:lang="en"
-      lang="en"&gt;
+      xml:data-lang="en"
+      data-lang="en"&gt;
   &lt;head&gt;
     &lt;meta http-equiv="content-type"
           content="application/xhtml+xml; charset=utf-8" /&gt;
