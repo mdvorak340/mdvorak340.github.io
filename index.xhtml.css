@@ -74,7 +74,7 @@ a::after {
   content:'›'
 }
 
-a[rel="external"]::after {
+a[target="_blank"]::after {
   content:'»';
 }
 
@@ -127,6 +127,11 @@ code > pre {
   border-radius:8px;
   overflow:auto;
   border:var(--wiqi-border);
+}
+
+img {
+  padding:4px;
+  color:var(--wiqi-error);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -229,6 +234,29 @@ wiqi-page section > details[open] > summary {
   width:var(--section-width);
 }
 
+wiqi-page section > figure {
+  /* Anchor jump offset. */
+  padding-top:var(--top-margin);
+  margin-top:calc(-1 * var(--top-margin));
+}
+
+wiqi-page section > figure img {
+  max-width:95%;
+}
+
+wiqi-page section > figure details[open] {
+  border:none;
+}
+
+wiqi-page section > figure figcaption {
+  border:var(--wiqi-border);
+  border-radius:8px;
+
+  width:fit-content;
+  margin:auto;
+  padding:8px;
+}
+
 wiqi-content {
   display:block;
 
@@ -279,7 +307,7 @@ wiqi-profile {
 }
 
 wiqi-profile > img {
-  width:60%;
+  max-width:70%;
   margin-bottom:8px;
 }
 
