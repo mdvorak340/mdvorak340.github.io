@@ -12,19 +12,20 @@
   --wiqi-monospace-font:'Courier new', Courier, monospace;
   --wiqi-border:1px solid var(--wiqi-text);
 
-  --wiqi-text:#333333;
-  --wiqi-text-2:#777777;
-  --wiqi-bg:#FEF9F1;
-  --wiqi-bg-2:#EEEEEE;
+  /* Kanagawa theme. */
+  --wiqi-text:#545464;
+  --wiqi-text-2:#43436c;
+  --wiqi-bg:#f2ecbc;
+  --wiqi-bg-2:#c9cbd1;
   --wiqi-bg-code:#DDDDDD;
 }
 
 @media (prefers-color-scheme:dark) {
   :root {
-    --wiqi-text:#F2D591;
-    --wiqi-text-2:#E7A771;
-    --wiqi-bg:#18150F;
-    --wiqi-bg-2:#252017;
+    --wiqi-text:#DCD7BA;
+    --wiqi-text-2:#C8C093;
+    --wiqi-bg:#1F1F28;
+    --wiqi-bg-2:#2D4F67;
     --wiqi-bg-code:#444444;
   }
 }
