@@ -17,7 +17,8 @@
   --wiqi-bg:#F9ECCC;
   --wiqi-bg-2:#C8C093;
   --wiqi-bg-code:#DDDDDD;
-  --wiqi-highlight:#19647E;
+  --wiqi-primary:#2D4F67;
+  --wiqi-error:#CC4444;
 }
 
 @media (prefers-color-scheme:dark) {
@@ -28,8 +29,26 @@
     --wiqi-bg:#1F1F28;
     --wiqi-bg-2:#666666;
     --wiqi-bg-code:#444444;
-    --wiqi-highlight:#2D4F67;
+    --wiqi-primary:#19647E;
+    --wiqi-error:#CC4444;
   }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Classes
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+*.bordered {
+  border:var(--wiqi-border);
+  border-radius:8px;
+}
+
+*.text-primary {
+  color:var(--wiqi-primary);
+}
+
+*.text-error {
+  color:var(--wiqi-error);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -41,11 +60,6 @@ body {
   font-family:Arial, Helvetica, sans-serif;
   background-color:var(--wiqi-bg-2);
   color:var(--wiqi-text);
-}
-
-*.bordered {
-  border:var(--wiqi-border);
-  border-radius:8px;
 }
 
 p {
@@ -62,6 +76,10 @@ a::after {
 
 a[rel="external"]::after {
   content:'»';
+}
+
+a[href^="#"]::after {
+  content:'↓';
 }
 
 details {
@@ -148,10 +166,14 @@ body > nav a + a::before {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 wiqi-page {
+  --top-margin:calc(var(--wiqi-nav-font-size) + 3 * var(--wiqi-page-padding));
+  --section-width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
+
   display:none;
 
   margin:auto;
-  margin-top:calc(var(--wiqi-nav-font-size) + 4 * var(--wiqi-page-padding));
+  margin-top:var(--top-margin);
+  padding-bottom:256px;
 
   background-color:var(--wiqi-bg);
   min-height:95vh;
@@ -167,13 +189,17 @@ wiqi-page section {
   max-width:var(--wiqi-page-width);
   margin:auto;
 
+  /* Anchor jump offset. */
+  padding-top:var(--top-margin);
+  margin-top:calc(-1 * var(--top-margin));
+
   overflow:auto;
 }
 
 wiqi-page section > h1,
 wiqi-page section > h2 {
   border-bottom:var(--wiqi-border);
-  width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
+  width:var(--section-width);
   text-align:left;
   margin:var(--wiqi-page-padding);
 }
@@ -184,7 +210,7 @@ wiqi-page section > h1 {
 
 wiqi-page section > h2::before {
   content:'§ ';
-  color:var(--wiqi-text-2);
+  color:var(--wiqi-primary);
 }
 
 wiqi-page section > details[open] {
@@ -195,12 +221,12 @@ wiqi-page section > details > summary {
   text-align:left;
   font-size:16pt;
   font-weight:bold;
-  margin-bottom:var(--wiqi-page-padding);
+  margin:var(--wiqi-page-padding);
 }
 
 wiqi-page section > details[open] > summary {
   border-bottom:var(--wiqi-border);
-  width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
+  width:var(--section-width);
 }
 
 wiqi-content {
@@ -219,7 +245,7 @@ wiqi-side-bar {
   display:block;
 
   float:left;
-  margin-bottom:calc(2 * var(--wiqi-page-padding));
+  margin-bottom:var(--wiqi-page-padding);
 
   width:var(--wiqi-side-bar-width);
 }
@@ -233,10 +259,6 @@ wiqi-side-bar {
 
   wiqi-content {
     width:95%;
-  }
-
-  wiqi-side-bar {
-    width:60%;
   }
 }
 

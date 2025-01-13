@@ -73,30 +73,15 @@
     </wiqi-content>
 
     <wiqi-side-bar>
-      <wiqi-profile>
-        <h2>Wiqipedia</h2>
+      <wiqi-link-tree>
+        <h2>Jump To:</h2>
 
-        <table>
-          <tr>
-            <td>pages</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>languages</td>
-            <td>
-              <abbr title="eXtensible HyperText Markup Language">XHTML5</abbr>
-              <br />
-              CSS
-              <br />
-              JavaScript
-            </td>
-          </tr>
-          <tr>
-            <td>dependencies</td>
-            <td>none!</td>
-          </tr>
-        </table>
-      </wiqi-profile>
+        <nav>
+          <a href="#code-html" title="#code-html">HTML</a>
+          <a href="#code-css" title="#code-css">CSS</a>
+          <a href="#code-js" title="#code-js">JavaScript</a>
+        </nav>
+      </wiqi-link-tree>
     </wiqi-side-bar>
   </section>
 
@@ -132,7 +117,7 @@
               <abbr title="World Wide Web Consortium">W3C</abbr>
               <br />
               <abbr title="Web Hypertext Application Technology Working Group"
-                  >WHATWG</abbr>
+                >WHATWG</abbr>
             </td>
           </tr>
         </table>
@@ -248,19 +233,18 @@
           to change the file extension to <code>.xhtml</code> and alter a bit
           of the page preamble:
         </p>
+
         <code data-lang="html">
 <pre>&lt;!DOCTYPE html&gt;
 
-&lt;html xmlns="http://www.w3.org/1999/xhtml"
-      xml:data-lang="en"
-      data-lang="en"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
   &lt;head&gt;
-    &lt;meta http-equiv="content-type"
-          content="application/xhtml+xml; charset=utf-8" /&gt;
+    &lt;meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" /&gt;
 
     &lt;title&gt;Page With An XHTML Header&lt;/title&gt;
     ...</pre>
         </code>
+
         <p>
           This links to the authority on what is and isn't valid XHTML (the
           link) and tells the browser to read the page as an XHTML/XML
@@ -336,7 +320,7 @@
             <td>maintainer</td>
             <td>
               <abbr title="European Computer Manufacturers Association"
-                  >ECMA</abbr> International
+                >ECMA</abbr> International
             </td>
           </tr>
         </table>

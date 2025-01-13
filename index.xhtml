@@ -10,7 +10,7 @@
     <title>Wiqipedia: The Encyclopedia</title>
     <meta name="author" content="Mozzie Dvorak (mdvorak.personal@gmail.com)" />
     <meta name="description" content="Wiki Demo" />
-    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="theme-color" content="#2D4F67" />
     <meta name="color-scheme" content="light dark" />
 
     <link rel="shortcut icon" href="./images/funky-lil-guy.ico" />
@@ -27,7 +27,7 @@
 
     <wiqi-page id="error">
       <section>
-        <h1>ERROR: Page not found!</h1>
+        <h1 class="text-error">ERROR: Page not found!</h1>
 
         It seems that page doesn't exist... not yet!
         <br />
@@ -55,14 +55,13 @@
         </wiqi-content>
 
         <wiqi-side-bar>
-          <wiqi-profile>
-            <h2>Welcome!</h2>
+          <wiqi-link-tree>
+            <h2>Pages</h2>
 
-            <img src="./images/the-cat.jpg"
-                 alt="candid photo of mi gatito"
-                 title="candid photo of mi gatito"
-                 class="bordered" />
-          </wiqi-profile>
+            <nav>
+              <a href="?page=test" title="?page=test">Test Page</a>
+            </nav>
+          </wiqi-link-tree>
         </wiqi-side-bar>
       </section>
     </wiqi-page>
