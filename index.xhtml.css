@@ -1,3 +1,7 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Variables
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 :root {
   --wiqi-nav-font-size:14pt;
 
@@ -8,20 +12,25 @@
   --wiqi-monospace-font:'Courier new', Courier, monospace;
   --wiqi-border:1px solid var(--wiqi-text);
 
-  --wiqi-text:#333333;
-  --wiqi-text-2:#777777;
-  --wiqi-bg:#fef9f1;
-  --wiqi-bg-2:#EEEEEE;
+  --wiqi-text:#1F271B;
+  --wiqi-text-2:#7D5C65;
+  --wiqi-bg:#F9ECCC;
+  --wiqi-bg-2:#C8C093;
   --wiqi-bg-code:#DDDDDD;
+  --wiqi-highlight:#19647E;
 }
 
-/* :root.dark { */
-/*   --wiqi-text:#FFFFFF; */
-/*   --wiqi-text-2:#EEEEEE; */
-/*   --wiqi-bg:#000000; */
-/*   --wiqi-bg-2:#555555; */
-/*   --wiqi-bg-code:#777777; */
-/* } */
+@media (prefers-color-scheme:dark) {
+  :root {
+    /* Kanagawa theme. */
+    --wiqi-text:#DCD7BA;
+    --wiqi-text-2:#C8C093;
+    --wiqi-bg:#1F1F28;
+    --wiqi-bg-2:#666666;
+    --wiqi-bg-code:#444444;
+    --wiqi-highlight:#2D4F67;
+  }
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * General
@@ -130,7 +139,8 @@ body > nav a::after {
 }
 
 body > nav a + a::before {
-  content:'| ';
+  content:'∘ ';
+  color:var(--wiqi-text);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -141,7 +151,7 @@ wiqi-page {
   display:none;
 
   margin:auto;
-  margin-top:calc(var(--wiqi-nav-font-size) + 3 * var(--wiqi-page-padding));
+  margin-top:calc(var(--wiqi-nav-font-size) + 4 * var(--wiqi-page-padding));
 
   background-color:var(--wiqi-bg);
   min-height:95vh;
@@ -209,7 +219,7 @@ wiqi-side-bar {
   display:block;
 
   float:left;
-  margin-bottom:var(--wiqi-page-padding);
+  margin-bottom:calc(2 * var(--wiqi-page-padding));
 
   width:var(--wiqi-side-bar-width);
 }
