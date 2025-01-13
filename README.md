@@ -28,6 +28,9 @@ raw HTML, CSS, and JS.  Or, raw XHTML5, technically.
 
   - `xhttp/pages` stores all non-standard pages.
 
+- `hosted` has nothing to do with the website, it is merely used to host images
+  or other documents that can then be referenced by URL somewhere else.
+
 ## PAGE STRUCTURE AND CUSTOM TAGS
 
 Example structure of a page in `xhttp/pages` using every custom element.
