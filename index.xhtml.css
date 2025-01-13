@@ -219,7 +219,7 @@ wiqi-side-bar {
   display:block;
 
   float:left;
-  margin-bottom:var(--wiqi-page-padding);
+  margin-bottom:calc(2 * var(--wiqi-page-padding));
 
   width:var(--wiqi-side-bar-width);
 }
