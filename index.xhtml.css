@@ -140,6 +140,7 @@ body > nav a::after {
 
 body > nav a + a::before {
   content:'∘ ';
+  color:var(--wiqi-text);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
