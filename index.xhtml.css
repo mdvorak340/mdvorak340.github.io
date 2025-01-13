@@ -22,10 +22,10 @@
 @media (prefers-color-scheme:dark) {
   :root {
     --wiqi-text:#F2D591;
-    --wiqi-text-2:#777777;
+    --wiqi-text-2:#E7A771;
     --wiqi-bg:#18150F;
     --wiqi-bg-2:#252017;
-    --wiqi-bg-code:#555555;
+    --wiqi-bg-code:#444444;
   }
 }
 
