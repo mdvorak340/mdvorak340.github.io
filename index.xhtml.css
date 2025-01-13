@@ -1,3 +1,7 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Variables
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 :root {
   --wiqi-nav-font-size:14pt;
 
@@ -10,18 +14,20 @@
 
   --wiqi-text:#333333;
   --wiqi-text-2:#777777;
-  --wiqi-bg:#fef9f1;
+  --wiqi-bg:#FEF9F1;
   --wiqi-bg-2:#EEEEEE;
   --wiqi-bg-code:#DDDDDD;
 }
 
-/* :root.dark { */
-/*   --wiqi-text:#FFFFFF; */
-/*   --wiqi-text-2:#EEEEEE; */
-/*   --wiqi-bg:#000000; */
-/*   --wiqi-bg-2:#555555; */
-/*   --wiqi-bg-code:#777777; */
-/* } */
+@media (prefers-color-scheme:dark) {
+  :root {
+    --wiqi-text:#F2D591;
+    --wiqi-text-2:#EEEEEE;
+    --wiqi-bg:#18150F;
+    --wiqi-bg-2:#252017;
+    --wiqi-bg-code:#777777;
+  }
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * General
@@ -130,7 +136,7 @@ body > nav a::after {
 }
 
 body > nav a + a::before {
-  content:'| ';
+  content:'∘ ';
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -141,7 +147,7 @@ wiqi-page {
   display:none;
 
   margin:auto;
-  margin-top:calc(var(--wiqi-nav-font-size) + 3 * var(--wiqi-page-padding));
+  margin-top:calc(var(--wiqi-nav-font-size) + 4 * var(--wiqi-page-padding));
 
   background-color:var(--wiqi-bg);
   min-height:95vh;
