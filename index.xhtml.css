@@ -136,8 +136,7 @@ code > pre {
 img {
   max-width:100%;
 
-  padding:4px;
-  margin:8px;
+  margin:8px 0px;
 
   color:var(--wiqi-error);  /* affects alt text */
 }
