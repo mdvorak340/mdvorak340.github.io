@@ -70,6 +70,22 @@ p + p {
   margin-top:8px;
 }
 
+p details {
+  padding:4px;
+}
+
+p details[open] {
+  border:var(--wiqi-border);
+}
+
+p details[open] summary {
+  margin-bottom:8px;
+}
+
+summary:hover {
+  cursor:pointer;
+}
+
 h3 {
   margin:16px 0px 8px 0px;
 }
@@ -84,10 +100,6 @@ a[target="_blank"]::after {
 
 a[href^="#"]::after {
   content:'↓';
-}
-
-summary:hover {
-  cursor:pointer;
 }
 
 ul, ol {
@@ -122,26 +134,31 @@ code > pre {
 }
 
 img {
+  max-width:100%;
+
   padding:4px;
-  color:var(--wiqi-error);
+  margin:8px;
+
+  color:var(--wiqi-error);  /* affects alt text */
 }
 
 figure {
   /* Anchor jump offset. */
   padding-top:var(--top-margin);
   margin-top:calc(-1 * var(--top-margin));
-
-  margin-bottom:64px;
 }
 
-figure img {
-  max-width:100%;
-  margin:8px;
+figure + figure {
+  /* Anchor jump offset + extra space. */
+  margin-top:calc(-1 * var(--top-margin) + 64px);
 }
 
 figure figcaption {
-  width:fit-content;
   margin:8px auto;
+  width:fit-content;
+
+  font-size:14px;
+  color:var(--wiqi-text-2);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -252,18 +269,6 @@ wiqi-content {
   padding:var(--wiqi-page-padding);
 }
 
-wiqi-content details {
-  padding:4px;
-}
-
-wiqi-content details[open] {
-  border:var(--wiqi-border);
-}
-
-wiqi-content details[open] > summary {
-  margin-bottom:8px;
-}
-
 wiqi-side-bar {
   display:block;
 
@@ -297,11 +302,6 @@ wiqi-profile {
   margin:auto;
 
   overflow:auto;
-}
-
-wiqi-profile > img {
-  max-width:70%;
-  margin-bottom:8px;
 }
 
 wiqi-profile table {
