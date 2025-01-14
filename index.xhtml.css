@@ -226,12 +226,13 @@ wiqi-page section > details > summary {
   text-align:left;
   font-size:16pt;
   font-weight:bold;
+  
   margin:var(--wiqi-page-padding);
+  width:var(--section-width);
 }
 
 wiqi-page section > details[open] > summary {
   border-bottom:var(--wiqi-border);
-  width:var(--section-width);
 }
 
 wiqi-page section > figure {
