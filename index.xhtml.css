@@ -10,7 +10,7 @@
   --wiqi-side-bar-width:256px;
 
   --wiqi-monospace-font:'Courier new', Courier, monospace;
-  --wiqi-border:1px solid var(--wiqi-text);
+  --wiqi-border:2px solid var(--wiqi-text);
 
   --wiqi-text:#1F271B;
   --wiqi-text-2:#7D5C65;
@@ -70,6 +70,10 @@ p + p {
   margin-top:8px;
 }
 
+h3 {
+  margin:16px 0px 8px 0px;
+}
+
 a::after {
   content:'›'
 }
@@ -80,18 +84,6 @@ a[target="_blank"]::after {
 
 a[href^="#"]::after {
   content:'↓';
-}
-
-details {
-  padding:4px;
-}
-
-details[open] {
-  border:1px solid var(--wiqi-text-2);
-}
-
-details[open] > summary {
-  margin-bottom:8px;
 }
 
 summary:hover {
@@ -112,7 +104,7 @@ code {
 }
 
 kbd {
-  border:var(--wiqi-border);
+  border:1px solid var(--wiqi-text);
   background-color:var(--wiqi-bg-2);
   border-radius:4px;
   padding:0px 2px;
@@ -132,6 +124,24 @@ code > pre {
 img {
   padding:4px;
   color:var(--wiqi-error);
+}
+
+figure {
+  /* Anchor jump offset. */
+  padding-top:var(--top-margin);
+  margin-top:calc(-1 * var(--top-margin));
+
+  margin-bottom:64px;
+}
+
+figure img {
+  max-width:100%;
+  margin:8px;
+}
+
+figure figcaption {
+  width:fit-content;
+  margin:8px auto;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -218,45 +228,16 @@ wiqi-page section > h2::before {
   color:var(--wiqi-primary);
 }
 
-wiqi-page section > details[open] {
-  border:none;
-}
-
 wiqi-page section > details > summary {
   text-align:left;
   font-size:16pt;
   font-weight:bold;
-  
+
   margin:var(--wiqi-page-padding);
-  width:var(--section-width);
 }
 
 wiqi-page section > details[open] > summary {
   border-bottom:var(--wiqi-border);
-}
-
-wiqi-page section > figure {
-  /* Anchor jump offset. */
-  padding-top:var(--top-margin);
-  margin-top:calc(-1 * var(--top-margin));
-  margin-bottom:64px;
-}
-
-wiqi-page section > figure img {
-  max-width:95%;
-}
-
-wiqi-page section > figure details[open] {
-  border:none;
-}
-
-wiqi-page section > figure figcaption {
-  border:var(--wiqi-border);
-  border-radius:8px;
-
-  width:fit-content;
-  margin:auto;
-  padding:8px;
 }
 
 wiqi-content {
@@ -269,6 +250,18 @@ wiqi-content {
   margin-bottom:var(--wiqi-page-padding);
 
   padding:var(--wiqi-page-padding);
+}
+
+wiqi-content details {
+  padding:4px;
+}
+
+wiqi-content details[open] {
+  border:var(--wiqi-border);
+}
+
+wiqi-content details[open] > summary {
+  margin-bottom:8px;
 }
 
 wiqi-side-bar {
@@ -313,7 +306,7 @@ wiqi-profile > img {
 
 wiqi-profile table {
   width:100%;
-  margin:4px auto;
+  margin:0px auto;
 
   border-collapse:collapse;
 }
