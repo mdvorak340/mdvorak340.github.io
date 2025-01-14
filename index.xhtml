@@ -23,7 +23,19 @@
       <a href="?page=art" title="?page=art">My Art</a>
     </nav>
 
-    <wiqi-page id="error">
+    <noscript>
+      <wiqi-page id="no-js-error" open="">
+        <section>
+          <h1 class="text-error">ERROR: JavaScript not allowed!</h1>
+
+          Unfortunately, I enjoy overcomplicating things <em>way</em> too much
+          to make a static site that doesn't rely heavily on scripts — make an
+          exception, pretty please?
+        </section>
+      </wiqi-page>
+    </noscript>
+
+    <wiqi-page id="not-found-error">
       <section>
         <h1 class="text-error">ERROR: Page not found!</h1>
 

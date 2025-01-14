@@ -33,7 +33,7 @@ function main() {
       xhttpPage,
       `pages/${pageId}`,
       () => { openPage(pageId); fillWiqiIncludes(xhttpPage); },
-      () => openPage('error')
+      () => openPage('not-found-error')
     );
   } else {
     console.error('!!! xhttp page is undefined');
