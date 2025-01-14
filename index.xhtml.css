@@ -238,6 +238,7 @@ wiqi-page section > figure {
   /* Anchor jump offset. */
   padding-top:var(--top-margin);
   margin-top:calc(-1 * var(--top-margin));
+  margin-bottom:64px;
 }
 
 wiqi-page section > figure img {
@@ -283,9 +284,6 @@ wiqi-side-bar {
   wiqi-side-bar {
     float:none;
     margin:auto;
-  }
-
-  wiqi-content {
     width:95%;
   }
 }
@@ -301,6 +299,7 @@ wiqi-profile {
   border-radius:8px;
 
   width:100%;
+  max-width:var(--wiqi-side-bar-width);
   margin:auto;
 
   overflow:auto;
