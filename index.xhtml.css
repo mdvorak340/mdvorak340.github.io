@@ -278,7 +278,7 @@ wiqi-side-bar {
   width:var(--wiqi-side-bar-width);
 }
 
-@media (width < 650px) {
+@media (width < 700px) {
   wiqi-content,
   wiqi-side-bar {
     float:none;
