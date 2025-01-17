@@ -5,9 +5,9 @@
 :root {
   --wiqi-nav-font-size:14pt;
 
-  --wiqi-page-width:800px;
+  --wiqi-page-width:900px;
   --wiqi-page-padding:8px;
-  --wiqi-side-bar-width:256px;
+  --wiqi-side-bar-width:300px;
 
   --wiqi-monospace-font:'Courier new', Courier, monospace;
   --wiqi-border:2px solid var(--wiqi-text);
@@ -278,12 +278,13 @@ wiqi-side-bar {
   width:var(--wiqi-side-bar-width);
 }
 
-@media (width < 600px) {
+@media (width < 700px) {
   wiqi-content,
   wiqi-side-bar {
     float:none;
     margin:auto;
     width:95%;
+    max-width:calc(var(--wiqi-page-width) - var(--wiqi-side-bar-width));
   }
 }
 

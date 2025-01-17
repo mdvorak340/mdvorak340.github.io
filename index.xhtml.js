@@ -21,7 +21,7 @@ function main() {
    * The target container that will hold the page loaded via xhttp.
    * @type {Element}
    */
-  const xhttpPage = document.querySelector('wiqi-js-target#xhttp-page');
+  const xhttpPage = document.getElementById('xhttp-page');
 
   fillWiqiIncludes();  // Start loading includes.
 
