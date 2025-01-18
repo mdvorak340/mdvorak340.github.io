@@ -57,8 +57,10 @@
 
 body {
   text-align:center;
+
   font-family:Arial, Helvetica, sans-serif;
   font-size:18px;
+
   background-color:var(--wiqi-bg-2);
   color:var(--wiqi-text);
 }
@@ -120,18 +122,23 @@ kbd {
   border:1px solid var(--wiqi-text);
   background-color:var(--wiqi-bg-2);
   border-radius:4px;
+
   padding:0px 2px;
-  font-family:var(--wiqi-monospace-font);
   margin:0px 2px;
+
+  font-family:var(--wiqi-monospace-font);
 }
 
 code > pre {
-  background-color:var(--wiqi-bg-code);
-  font-family:var(--wiqi-monospace-font);
-  padding:8px;
-  border-radius:8px;
   overflow:auto;
+
+  padding:8px;
+
+  background-color:var(--wiqi-bg-code);
+  border-radius:8px;
   border:var(--wiqi-border);
+
+  font-family:var(--wiqi-monospace-font);
 }
 
 img {
@@ -156,6 +163,7 @@ figure + figure {
 figure figcaption {
   margin:8px auto;
   width:fit-content;
+  max-width:calc(var(--wiqi-page-width) - var(--wiqi-side-bar-width));
 
   font-size:14px;
   color:var(--wiqi-text-2);
