@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta http-equiv="CONTENT-TYPE" content="application/xhtml+xml; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <title>Mozzie's Den</title>
@@ -15,23 +17,23 @@
   </head>
 
   <body>
+    <template id="wiqi-code-block">
+<pre part="pre"><slot></slot></pre>
+
+      <button part="copy-button" onclick="copyCode(this)">
+        Copy to clipboard
+      </button>
+
+      <button part="save-button" onclick="saveCode(this)">
+        Save to file
+      </button>
+    </template>
+
     <nav>
       <a href="?page=home" title="?page=home">Home</a>
       <a href="?page=code" title="?page=code">About The Site</a>
       <a href="?page=art" title="?page=art">My Art</a>
     </nav>
-
-    <noscript>
-      <wiqi-page id="no-js-error" open="">
-        <section>
-          <h1 class="text-error">ERROR: JavaScript not allowed!</h1>
-
-          Unfortunately, I enjoy overcomplicating things <em>way</em> too much
-          to make a static site that doesn't rely heavily on scripts — make an
-          exception, pretty please?
-        </section>
-      </wiqi-page>
-    </noscript>
 
     <wiqi-page id="not-found-error">
       <section>
@@ -87,6 +89,6 @@
       </section>
     </wiqi-page>
 
-    <wiqi-js-target id="xhttp-page" />
+    <wiqi-js-target id="xhr-page"></wiqi-js-target>
   </body>
 </html>

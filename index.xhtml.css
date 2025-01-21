@@ -9,8 +9,9 @@
   --wiqi-page-padding:8px;
   --wiqi-side-bar-width:300px;
 
+  --wiqi-font:Arial, Helvetica, sans-serif;
   --wiqi-monospace-font:'Courier new', Courier, monospace;
-  --wiqi-border:2px solid var(--wiqi-text);
+  --wiqi-border:1px solid var(--wiqi-text);
 
   --wiqi-text:#1F271B;
   --wiqi-text-2:#7D5C65;
@@ -58,7 +59,7 @@
 body {
   text-align:center;
 
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:var(--wiqi-font);
   font-size:18px;
 
   background-color:var(--wiqi-bg-2);
@@ -125,18 +126,6 @@ kbd {
 
   padding:0px 2px;
   margin:0px 2px;
-
-  font-family:var(--wiqi-monospace-font);
-}
-
-code > pre {
-  overflow:auto;
-
-  padding:8px;
-
-  background-color:var(--wiqi-bg-code);
-  border-radius:8px;
-  border:var(--wiqi-border);
 
   font-family:var(--wiqi-monospace-font);
 }
@@ -403,4 +392,62 @@ wiqi-link-tree nav a {
   display:block;
   text-decoration:none;
   margin-top:4px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * wiqi-code-block
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+wiqi-code-block {
+  display:block;
+
+  margin:8px 0px;
+}
+
+wiqi-code-block::part(pre) {
+  overflow:auto;
+
+  padding:4px;
+  margin:0px 0px 4px 0px;
+
+  border:var(--wiqi-border);
+  border-radius:8px;
+  background-color:var(--wiqi-bg-code);
+
+  color:var(--wiqi-text);
+  font-size:12pt;
+  font-family:var(--wiqi-monospace-font);
+}
+
+wiqi-code-block::part(copy-button),
+wiqi-code-block::part(save-button) {
+  border:var(--wiqi-border);
+  border-radius:8px;
+  background-color:var(--wiqi-bg-code);
+
+  padding:2px 4px;
+
+  color:var(--wiqi-text);
+  font-family:var(--wiqi-monospace-font);
+  font-size:10pt;
+}
+
+wiqi-code-block::part(copy-button):hover,
+wiqi-code-block::part(save-button):hover {
+  background-color:var(--wiqi-bg-2);
+}
+
+wiqi-code-block::part(copy-button):active,
+wiqi-code-block::part(save-button):active {
+  background-color:var(--wiqi-text);
+  color:var(--wiqi-bg);
+  border-color:var(--wiqi-bg);
+}
+
+wiqi-code-block::part(save-button) {
+  display:none;
+}
+
+wiqi-code-block[isfile]::part(save-button) {
+  display:inline;
 }
