@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta http-equiv="CONTENT-TYPE" content="application/xhtml+xml; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Mozzie's Den</title>
+    <title>Wiqipedia: The Gay Encyclopedia</title>
     <meta name="author" content="Mozzie Dvorak (mdvorak.personal@gmail.com)" />
     <meta name="description" content="gay little wiki demo built for fun" />
     <meta name="theme-color" content="#2D4F67" />
     <meta name="color-scheme" content="light dark" />
 
-    <link rel="shortcut icon" href="./images/favicon.ico" />
-    <link rel="stylesheet" href="./index.xhtml.css" />
-    <script src="./index.xhtml.js" defer=""></script>
+    <link type="image/x-icon" rel="icon" href="./images/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="./index.xhtml.css" />
+    <script type="text/javascript" defer="" src="./index.xhtml.js"></script>
   </head>
 
   <body>
     <template id="wiqi-code-block">
-<pre part="pre"><slot></slot></pre>
+      <pre part="pre"><slot /></pre>
 
       <button part="copy-button" onclick="copyCode(this)">
         Copy to clipboard
@@ -27,6 +27,30 @@
       <button part="save-button" onclick="saveCode(this)">
         Save to file
       </button>
+    </template>
+
+    <template id="wiqi-page">
+      <slot />
+    </template>
+
+    <template id="wiqi-content">
+      <slot />
+    </template>
+
+    <template id="wiqi-side-bar">
+      <slot />
+    </template>
+
+    <template id="wiqi-profile">
+      <slot />
+    </template>
+
+    <template id="wiqi-link-tree">
+      <slot />
+    </template>
+
+    <template id="wiqi-quote">
+      <slot />
     </template>
 
     <nav>
