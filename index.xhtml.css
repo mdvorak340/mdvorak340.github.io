@@ -36,6 +36,7 @@
   --wiqi-bg-2:#666666;
   --wiqi-bg-code:#444444;
   --wiqi-primary:#19647E;
+  --wiqi-highlight:#CC4444;
   --wiqi-error:#CC4444;
 
   --wiqi-font:Sarala, Helvetica, Arial, sans-serif;
@@ -52,6 +53,7 @@
     --wiqi-bg-2:#C8C093;
     --wiqi-bg-code:#DDDDDD;
     --wiqi-primary:#2D4F67;
+    --wiqi-highlight:#CC4444;
     --wiqi-error:#CC4444;
   }
 }
@@ -64,6 +66,14 @@
   padding:0px;
   margin:0px;
   box-sizing:border-box;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Classes.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+*.text-error {
+  color:var(--wiqi-error);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -104,6 +114,37 @@ body > footer {
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Links.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+a {
+  color:var(--wiqi-text);
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+a:hover {
+  text-decoration:underline var(--wiqi-highlight);
+}
+
+a:hover::before {
+  text-decoration:none;
+}
+
+a::after {
+  content:'›';
+  color:var(--wiqi-highlight);
+}
+
+a[target="_blank"]::after {
+  content:'»';
+}
+
+a[href^="#"]::after {
+  content:'↓';
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Nav.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -112,8 +153,8 @@ body > nav {
 }
 
 body > nav a:hover {
-  color:var(--wiqi-primary);
   text-decoration:none;
+  color:var(--wiqi-highlight);
 }
 
 body > nav a + a::before {
@@ -132,11 +173,7 @@ header {
   text-align:center;
 }
 
-header.error-page h1 {
-  color:var(--wiqi-error);
-}
-
-@media (width > 700px) {
+@media (width > 600px) {
   header {
     text-align:left;
   }
@@ -150,7 +187,6 @@ section {
   display:grid;
   grid-template:
     "head" min-content
-    "link" min-content
     "text" min-content
     "side" min-content
   / 1fr;
@@ -160,12 +196,22 @@ section.gallery {
   display:inline;
 }
 
-@media (width > 700px) {
+@media (width > 600px) {
   section {
     grid-template:
-      "head head head" min-content
-      "link text side" min-content
-    / 12ch  1fr  min-content;
+      "head head" min-content
+      "link link" min-content
+      "text side" min-content
+    / 1fr   min-content;
+  }
+
+  @media (width > 800px) {
+    section {
+      grid-template:
+        "head head head" min-content
+        "link text side" min-content
+      / 12ch  1fr  min-content;
+    }
   }
 }
 
@@ -186,40 +232,47 @@ section > aside {
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Links.
+ * Link Tree.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 section > nav {
-  text-align:center;
+  display:none;
 }
 
-section > nav a {
-  display:inline;
-}
-
-section > nav a:hover {
-  color:var(--wiqi-primary);
-  text-decoration:none;
-}
-
-
-section > nav a + a::before {
-  content:' • ';
-  color:var(--wiqi-text);
-}
-
-@media (width > 700px) {
+@media (width > 600px) {
   section > nav {
-    text-align:left;
+    display:block;
+    text-align:center;
   }
 
   section > nav a {
-    display:block;
+    display:inline;
   }
 
-  section > nav a::before {
+  section > nav a:hover {
+    text-decoration:none;
+    color:var(--wiqi-highlight);
+  }
+
+  section > nav a + a::before {
     content:' • ';
     color:var(--wiqi-text);
+  }
+
+  @media (width > 800px) {
+    section > nav {
+      text-align:left;
+    }
+
+    section > nav a {
+      display:block;
+      margin-left:1ch;
+    }
+
+    section > nav a::before {
+      content:' • ';
+      color:var(--wiqi-text);
+    }
   }
 }
 
@@ -228,7 +281,7 @@ section > nav a + a::before {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 section > aside {
-  margin:0px 8px;
+  margin:0px 8px 8px 8px;
   padding:8px;
   border:2px solid var(--wiqi-text);
   border-radius:8px;
@@ -255,7 +308,11 @@ footer {
  * Text.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-p, ul, ol, dl, pre, h2, h3, h4, h5, h6, summary {
+p, ul, ol, dl, pre, h2, h3, h4, h5, h6 {
+  margin-bottom:8px;
+}
+
+main > span > details > summary {  /* Pretend h2 section header. */
   margin-bottom:8px;
 }
 
@@ -267,14 +324,6 @@ h2, main > span > details > summary {
   font-size:1.5rem;
   font-weight:bold;
   border-bottom:2px solid var(--wiqi-primary);
-}
-
-a {
-  text-decoration:none;
-}
-
-a:hover {
-  text-decoration:underline;
 }
 
 code {
@@ -298,6 +347,14 @@ dt {
 dd::before {
   content:'» ';
   margin-left:16px;
+}
+
+summary {
+  font-style:italic;
+}
+
+summary:hover {
+  cursor:pointer;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

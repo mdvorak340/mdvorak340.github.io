@@ -18,13 +18,13 @@
   <body>
     <nav>
       <a href="?page=home" title="?page=home">Home</a>
-      <a href="?page=code" title="?page=code">HTML/CSS/JS</a>
+      <a href="?page=code" title="?page=code">This Site</a>
       <a href="?page=art" title="?page=art">My Art</a>
     </nav>
 
-    <main id="xhrPage">
-      <header id="pageNotFoundError" class="error-page" hidden="">
-        <h1>ERROR: Page not found!</h1>
+    <main id="xhrPage" hidden="">
+      <header>
+        <h1 class="text-error">ERROR: Page not found!</h1>
       </header>
       <section>
         <span>
@@ -45,9 +45,8 @@
           switch (this.status) {
             case 200:
               xhrPage.innerHTML = this.responseText;
-              break;
             default:
-              pageNotFoundError.removeAttribute('hidden');
+              xhrPage.removeAttribute('hidden');
           }
         }
       }
@@ -58,6 +57,8 @@
 
     <footer>
       Site by Mozzie Dvorak
+      <br />
+      Hosted on Github Pages
     </footer>
 
     <script>
