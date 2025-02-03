@@ -185,6 +185,7 @@ header {
 
 section {
   display:grid;
+  column-gap:8px;
   grid-template:
     "head" min-content
     "text" min-content
@@ -281,12 +282,13 @@ section > nav {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 section > aside {
-  margin:0px 8px 8px 8px;
+  margin-bottom:8px;
   padding:8px;
   border:2px solid var(--wiqi-text);
   border-radius:8px;
   min-width:20ch;
   text-align:center;
+  height:fit-content;
 }
 
 section > aside dl {
