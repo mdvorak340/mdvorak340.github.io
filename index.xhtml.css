@@ -2,452 +2,323 @@
  * Variables
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-:root {
-  --wiqi-nav-font-size:14pt;
-
-  --wiqi-page-width:900px;
-  --wiqi-page-padding:8px;
-  --wiqi-side-bar-width:300px;
-
-  --wiqi-font:Arial, Helvetica, sans-serif;
-  --wiqi-monospace-font:'Courier new', Courier, monospace;
-  --wiqi-border:1px solid var(--wiqi-text);
-
-  --wiqi-text:#1F271B;
-  --wiqi-text-2:#7D5C65;
-  --wiqi-bg:#F9ECCC;
-  --wiqi-bg-2:#C8C093;
-  --wiqi-bg-code:#DDDDDD;
-  --wiqi-primary:#2D4F67;
-  --wiqi-error:#CC4444;
+@font-face {
+  font-family:Sarala;
+  src:url('./fonts/Sarala-Regular.ttf');
+  font-display:swap;
 }
 
-@media (prefers-color-scheme:dark) {
+@font-face {
+  font-family:Sarala;
+  src:url('./fonts/Sarala-Bold.ttf');
+  font-weight:bold;
+  font-display:swap;
+}
+
+@font-face {
+  font-family:DMMono;
+  src:url('./fonts/DMMono-Regular.ttf');
+  font-display:swap;
+}
+
+@font-face {
+  font-family:DMMono;
+  src:url('./fonts/DMMono-Italic.ttf');
+  font-style:italic;
+  font-display:swap;
+}
+
+:root {
+  /* Kanagawa neovim theme. */
+  --wiqi-text:#DCD7BA;
+  --wiqi-text-2:#C8C093;
+  --wiqi-bg:#1F1F28;
+  --wiqi-bg-2:#666666;
+  --wiqi-bg-code:#444444;
+  --wiqi-primary:#19647E;
+  --wiqi-error:#CC4444;
+
+  --wiqi-font:Sarala, Helvetica, Arial, sans-serif;
+  --wiqi-font-size:14pt;
+  --wiqi-font-code:DMMono, 'Courier New', Courier, monospace;
+  --wiqi-font-code-size:12pt;
+}
+
+@media (prefers-color-scheme:light) {
   :root {
-    /* Kanagawa theme. */
-    --wiqi-text:#DCD7BA;
-    --wiqi-text-2:#C8C093;
-    --wiqi-bg:#1F1F28;
-    --wiqi-bg-2:#666666;
-    --wiqi-bg-code:#444444;
-    --wiqi-primary:#19647E;
+    --wiqi-text:#1F271B;
+    --wiqi-text-2:#7D5C65;
+    --wiqi-bg:#F9ECCC;
+    --wiqi-bg-2:#C8C093;
+    --wiqi-bg-code:#DDDDDD;
+    --wiqi-primary:#2D4F67;
     --wiqi-error:#CC4444;
   }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Classes
+ * CSS Reset.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-*.bordered {
-  border:var(--wiqi-border);
-  border-radius:8px;
-}
-
-*.text-primary {
-  color:var(--wiqi-primary);
-}
-
-*.text-error {
-  color:var(--wiqi-error);
+* {
+  padding:0px;
+  margin:0px;
+  box-sizing:border-box;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * General
+ * General.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+html {
+  font-family:var(--wiqi-font);
+  font-size:var(--wiqi-font-size);
+  line-height:1.45;
+  color:var(--wiqi-text);
+  background:var(--wiqi-bg);
+}
 
 body {
-  text-align:center;
-
-  font-family:var(--wiqi-font);
-  font-size:18px;
-
-  background-color:var(--wiqi-bg-2);
-  color:var(--wiqi-text);
+  padding:16px 32px;
+  margin:0px auto;
+  max-width:80ch;
+  min-height:100vh;
+  display:grid;
+  grid-template:
+    "navs" min-content
+    "main" 1fr
+    "foot" min-content
+  / 1fr;
 }
 
-p {
-  margin:0px;
+body > nav {
+  grid-area:navs;
 }
 
-p + p {
-  margin-top:8px;
+body > main {
+  grid-area:main;
 }
 
-p details {
-  padding:4px;
-}
-
-p details[open] {
-  border:var(--wiqi-border);
-}
-
-p details[open] summary {
-  margin-bottom:8px;
-}
-
-summary:hover {
-  cursor:pointer;
-}
-
-h3 {
-  margin:16px 0px 8px 0px;
-}
-
-a::after {
-  content:'›'
-}
-
-a[target="_blank"]::after {
-  content:'»';
-}
-
-a[href^="#"]::after {
-  content:'↓';
-}
-
-ul, ol {
-  margin-top:0px;
-}
-
-li {
-  margin:8px 0px;
-}
-
-code {
-  background-color:var(--wiqi-bg-code);
-  font-family:var(--wiqi-monospace-font);
-}
-
-kbd {
-  border:1px solid var(--wiqi-text);
-  background-color:var(--wiqi-bg-2);
-  border-radius:4px;
-
-  padding:0px 2px;
-  margin:0px 2px;
-
-  font-family:var(--wiqi-monospace-font);
-}
-
-img {
-  max-width:100%;
-
-  margin:8px 0px;
-
-  color:var(--wiqi-error);  /* affects alt text */
-}
-
-figure {
-  /* Anchor jump offset. */
-  padding-top:var(--top-margin);
-  margin-top:calc(-1 * var(--top-margin));
-}
-
-figure + figure {
-  /* Anchor jump offset + extra space. */
-  margin-top:calc(-1 * var(--top-margin) + 64px);
-}
-
-figure figcaption {
-  margin:8px auto;
-  width:fit-content;
-  max-width:calc(var(--wiqi-page-width) - var(--wiqi-side-bar-width));
-
-  font-size:14px;
-  color:var(--wiqi-text-2);
+body > footer {
+  grid-area:foot;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Navbar
+ * Nav.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 body > nav {
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:1000;
-
-  width:100%;
-  padding-top:var(--wiqi-page-padding);
-  padding-bottom:var(--wiqi-page-padding);
-
-  background-color:var(--wiqi-bg);
-  border-bottom:var(--wiqi-border);
+  text-align:center;
 }
 
-body > nav a {
-  font-size:var(--wiqi-nav-font-size);
+body > nav a:hover {
+  color:var(--wiqi-primary);
   text-decoration:none;
 }
 
-body > nav a::after {
-  content:none;
-}
-
 body > nav a + a::before {
-  content:'∘ ';
+  content:' ∘ ';
   color:var(--wiqi-text);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * wiqi-page, wiqi-content, wiqi-side-bar
+ * Header.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-wiqi-page {
-  --top-margin:calc(var(--wiqi-nav-font-size) + 3 * var(--wiqi-page-padding));
-  --section-width:calc(var(--wiki-page) - 2 * var(--wiqi-page-padding));
-
-  display:none;
-
-  margin:auto;
-  margin-top:var(--top-margin);
-  padding-bottom:256px;
-
-  background-color:var(--wiqi-bg);
-  min-height:95vh;
-
-  overflow:auto;
-}
-
-wiqi-page[open] {
-  display:block;
-}
-
-wiqi-page section {
-  max-width:var(--wiqi-page-width);
-  margin:auto;
-
-  /* Anchor jump offset. */
-  padding-top:var(--top-margin);
-  margin-top:calc(-1 * var(--top-margin));
-
-  overflow:auto;
-}
-
-wiqi-page section > h1,
-wiqi-page section > h2 {
-  border-bottom:var(--wiqi-border);
-  width:var(--section-width);
-  text-align:left;
-  margin:var(--wiqi-page-padding);
-}
-
-wiqi-page section > h1 {
+header {
+  margin:8px 0px;
+  padding:8px 0px;
+  border-bottom:8px double var(--wiqi-primary);
   text-align:center;
 }
 
-wiqi-page section > h2::before {
-  content:'§ ';
-  color:var(--wiqi-primary);
+header.error-page h1 {
+  color:var(--wiqi-error);
 }
 
-wiqi-page section > details > summary {
-  text-align:left;
-  font-size:16pt;
-  font-weight:bold;
-
-  margin:var(--wiqi-page-padding);
-}
-
-wiqi-page section > details[open] > summary {
-  border-bottom:var(--wiqi-border);
-}
-
-wiqi-content {
-  display:block;
-
-  text-align:left;
-
-  float:left;
-  width:calc(100% - var(--wiqi-side-bar-width) - 3 * var(--wiqi-page-padding));
-  margin-bottom:var(--wiqi-page-padding);
-
-  padding:var(--wiqi-page-padding);
-}
-
-wiqi-side-bar {
-  display:block;
-
-  float:left;
-  margin-bottom:var(--wiqi-page-padding);
-
-  width:var(--wiqi-side-bar-width);
-}
-
-@media (width < 700px) {
-  wiqi-content,
-  wiqi-side-bar {
-    float:none;
-    margin:auto;
-    width:95%;
-    max-width:calc(var(--wiqi-page-width) - var(--wiqi-side-bar-width));
+@media (width > 700px) {
+  header {
+    text-align:left;
   }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * wiqi-profile
+ * Section.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-wiqi-profile {
-  display:block;
-
-  border:var(--wiqi-border);
-  border-radius:8px;
-
-  width:100%;
-  max-width:var(--wiqi-side-bar-width);
-  margin:auto;
-
-  overflow:auto;
+section {
+  display:grid;
+  grid-template:
+    "head" min-content
+    "link" min-content
+    "text" min-content
+    "side" min-content
+  / 1fr;
 }
 
-wiqi-profile table {
-  width:100%;
-  margin:0px auto;
-
-  border-collapse:collapse;
-}
-
-wiqi-profile table td {
-  border-top:var(--wiqi-border);
-
-  padding:4px 8px;
-  vertical-align:top;
-
-  text-align:right;
-  font-style:italic;
-}
-
-wiqi-profile table td + td {
-  border-left:1px dotted var(--wiqi-text-2);
-
-  text-align:left;
-  font-style:normal;
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * wiqi-quote
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-wiqi-quote {
-  display:block;
-
-  background-color:var(--wiqi-bg-2);
-  padding:8px;
-  font-family:var(--wiqi-monospace-font);
-  border-radius:8px;
-
-  margin-top:8px;
-}
-
-wiqi-quote q {
-  display:block;
-
-  padding:4px 0px;
-}
-
-wiqi-quote q[data-speaker="1"] {
-  margin-left:0%;
-}
-
-wiqi-quote q[data-speaker="2"] {
-  margin-left:15%;
-}
-
-wiqi-quote q[data-speaker="3"] {
-  margin-left:30%;
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * wiqi-link-tree
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-wiqi-link-tree {
-  display:block;
-
-  width:100%;
-  margin:auto;
-
-  overflow:auto;
-}
-
-wiqi-link-tree h2 {
-  text-align:right;
-
-  margin-bottom:0px;
-  padding:0px 8px;
-}
-
-wiqi-link-tree nav {
-  text-align:right;
-
-  margin-bottom:16px;
-  padding:0px 8px;
-
-  border-right:var(--wiqi-border);
-}
-
-wiqi-link-tree nav a {
-  display:block;
-  text-decoration:none;
-  margin-top:4px;
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * wiqi-code-block
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-wiqi-code-block {
-  display:block;
-
-  margin:8px 0px;
-}
-
-wiqi-code-block::part(pre) {
-  overflow:auto;
-
-  padding:4px;
-  margin:0px 0px 4px 0px;
-
-  border:var(--wiqi-border);
-  border-radius:8px;
-  background-color:var(--wiqi-bg-code);
-
-  color:var(--wiqi-text);
-  font-size:12pt;
-  font-family:var(--wiqi-monospace-font);
-}
-
-wiqi-code-block::part(copy-button),
-wiqi-code-block::part(save-button) {
-  border:var(--wiqi-border);
-  border-radius:8px;
-  background-color:var(--wiqi-bg-code);
-
-  padding:2px 4px;
-
-  color:var(--wiqi-text);
-  font-family:var(--wiqi-monospace-font);
-  font-size:10pt;
-}
-
-wiqi-code-block::part(copy-button):hover,
-wiqi-code-block::part(save-button):hover {
-  background-color:var(--wiqi-bg-2);
-}
-
-wiqi-code-block::part(copy-button):active,
-wiqi-code-block::part(save-button):active {
-  background-color:var(--wiqi-text);
-  color:var(--wiqi-bg);
-  border-color:var(--wiqi-bg);
-}
-
-wiqi-code-block::part(save-button) {
-  display:none;
-}
-
-wiqi-code-block[isfile]::part(save-button) {
+section.gallery {
   display:inline;
+}
+
+@media (width > 700px) {
+  section {
+    grid-template:
+      "head head head" min-content
+      "link text side" min-content
+    / 12ch  1fr  min-content;
+  }
+}
+
+section > h2 {
+  grid-area:head;
+}
+
+section > nav {
+  grid-area:link;
+}
+
+section > span {
+  grid-area:text;
+}
+
+section > aside {
+  grid-area:side;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Links.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+section > nav {
+  text-align:center;
+}
+
+section > nav a {
+  display:inline;
+}
+
+section > nav a:hover {
+  color:var(--wiqi-primary);
+  text-decoration:none;
+}
+
+
+section > nav a + a::before {
+  content:' • ';
+  color:var(--wiqi-text);
+}
+
+@media (width > 700px) {
+  section > nav {
+    text-align:left;
+  }
+
+  section > nav a {
+    display:block;
+  }
+
+  section > nav a::before {
+    content:' • ';
+    color:var(--wiqi-text);
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Side.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+section > aside {
+  margin:0px 8px;
+  padding:8px;
+  border:2px solid var(--wiqi-text);
+  border-radius:8px;
+  min-width:20ch;
+  text-align:center;
+}
+
+section > aside dl {
+  text-align:left;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Footer.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+footer {
+  margin-top:16px;
+  font-size:10pt;
+  color:var(--wiqi-text-2);
+  text-align:right;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Text.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+p, ul, ol, dl, pre, h2, h3, h4, h5, h6, summary {
+  margin-bottom:8px;
+}
+
+li {
+  margin-left:2ch;
+}
+
+h2, main > span > details > summary {
+  font-size:1.5rem;
+  font-weight:bold;
+  border-bottom:2px solid var(--wiqi-primary);
+}
+
+a {
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
+code {
+  font-size:var(--wiqi-font-code-size);
+  font-family:var(--wiqi-font-code);
+}
+
+pre > code {
+  display:block;
+  overflow:auto;
+  border:2px solid var(--wiqi-text);
+  border-radius:8px;
+  padding:8px;
+}
+
+dt {
+  font-weight:bold;
+  font-size:1.1rem;
+}
+
+dd::before {
+  content:'» ';
+  margin-left:16px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Images.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+figure {
+  margin:16px auto;
+  text-align:center;
+}
+
+figure + figure {
+  margin-top:64px;
+}
+
+figcaption {
+  max-width:65ch;
+  font-size:12pt;
+  margin:4px auto;
+}
+
+img {
+  max-width:100%;
 }

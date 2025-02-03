@@ -13,106 +13,57 @@
 
     <link type="image/x-icon" rel="icon" href="./images/favicon.ico" />
     <link type="text/css" rel="stylesheet" href="./index.xhtml.css" />
-    <script type="text/javascript" defer="" src="./index.xhtml.js"></script>
   </head>
 
   <body>
-    <template id="wiqi-code-block">
-      <pre part="pre"><slot /></pre>
-
-      <button part="copy-button" onclick="copyCode(this)">
-        Copy to clipboard
-      </button>
-
-      <button part="save-button" onclick="saveCode(this)">
-        Save to file
-      </button>
-    </template>
-
-    <template id="wiqi-page">
-      <slot />
-    </template>
-
-    <template id="wiqi-content">
-      <slot />
-    </template>
-
-    <template id="wiqi-side-bar">
-      <slot />
-    </template>
-
-    <template id="wiqi-profile">
-      <slot />
-    </template>
-
-    <template id="wiqi-link-tree">
-      <slot />
-    </template>
-
-    <template id="wiqi-quote">
-      <slot />
-    </template>
-
     <nav>
       <a href="?page=home" title="?page=home">Home</a>
-      <a href="?page=code" title="?page=code">About The Site</a>
+      <a href="?page=code" title="?page=code">HTML/CSS/JS</a>
       <a href="?page=art" title="?page=art">My Art</a>
     </nav>
 
-    <wiqi-page id="not-found-error">
+    <main id="xhrPage">
+      <header id="pageNotFoundError" class="error-page" hidden="">
+        <h1>ERROR: Page not found!</h1>
+      </header>
       <section>
-        <h1 class="text-error">ERROR: Page not found!</h1>
-
-        It seems that page doesn't exist… not yet!
-        <br />
-        Or, perhaps not anymore?
+        <span>
+          It seems that page doesn't exist… not yet!
+          <br />
+          Or, perhaps not anymore?
+        </span>
       </section>
-    </wiqi-page>
+    </main>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const pageName = urlParams.get('page') || 'home';
 
-    <wiqi-page id="home">
-      <section id="home-summary">
-        <h1>Wiqipedia</h1>
+      var xhr = new XMLHttpRequest();
 
-        <wiqi-content>
-          <p>
-            This wiki is a little demo site to practice making websites using
-            nothing but raw
-            <abbr title="Hypertext Markup Language">HTML</abbr>,
-            <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript.
-            It has few pages — including one about how we wrote
-            this site — and features styles that react based on screen size and
-            a macro-like system for reusing HTML snippets.
-          </p>
-          <p>
-            <em>(Under construction)</em>
-          </p>
-        </wiqi-content>
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          switch (this.status) {
+            case 200:
+              xhrPage.innerHTML = this.responseText;
+              break;
+            default:
+              pageNotFoundError.removeAttribute('hidden');
+          }
+        }
+      }
 
-        <wiqi-side-bar>
-          <wiqi-link-tree>
-            <h2>Pages</h2>
-            <nav>
-              <a href="?page=test" title="?page=test">Test Page</a>
-              <a href="?page=notapage" title="?page=notapage">Error page</a>
-            </nav>
+      xhr.open("GET", `./pages/${pageName}.xhtml`);
+      xhr.send();
+    </script>
 
-            <h2>My Socials</h2>
-            <nav>
-              <a href="https://www.tumblr.com/a-few-cards-short-of-a-deck"
-                 title="https://www.tumblr.com/a-few-cards-short-of-a-deck"
-                 target="_blank">Tumblr</a>
-              <a href="https://bsky.app/profile/mdvorak.bsky.social"
-                 title="https://bsky.app/profile/mdvorak.bsky.social"
-                 target="_blank">Bluesky</a>
-              <a href="https://www.xiaohongshu.com/user/profile/67869384000000000803e400"
-                 title="https://www.xiaohongshu.com/user/profile/67869384000000000803e400"
-                 target="_blank">小红书</a>
-            </nav>
-          </wiqi-link-tree>
-        </wiqi-side-bar>
-      </section>
-    </wiqi-page>
+    <footer>
+      Site by Mozzie Dvorak
+    </footer>
 
-    <wiqi-js-target id="xhr-page"></wiqi-js-target>
+    <script>
+      function copyText(element) {
+        window.navigator.clipboard.writeText(element.innerText);
+      }
+    </script>
   </body>
 </html>
