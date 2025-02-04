@@ -22,7 +22,7 @@
       <a href="?page=art" title="?page=art">My Art</a>
     </nav>
 
-    <main id="xhrPage" hidden="">
+    <main id="xhr-page" hidden="">
       <header>
         <h1 class="text-error">ERROR: Page not found!</h1>
       </header>
@@ -37,6 +37,7 @@
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const pageName = urlParams.get('page') || 'home';
+      const xhrPage = document.getElementById('xhr-page');
 
       var xhr = new XMLHttpRequest();
 
