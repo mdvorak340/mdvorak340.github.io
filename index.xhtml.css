@@ -91,7 +91,7 @@ html {
 body {
   padding:16px 32px;
   margin:0px auto;
-  max-width:80ch;
+  max-width:100ch;
   min-height:100vh;
   display:grid;
   grid-template:
@@ -170,13 +170,6 @@ header {
   margin:8px 0px;
   padding:8px 0px;
   border-bottom:8px double var(--wiqi-primary);
-  text-align:center;
-}
-
-@media (width > 600px) {
-  header {
-    text-align:left;
-  }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -185,7 +178,7 @@ header {
 
 section {
   display:grid;
-  column-gap:8px;
+  column-gap:1ch;
   grid-template:
     "head" min-content
     "text" min-content
@@ -238,26 +231,28 @@ section > aside {
 
 section > nav {
   display:none;
+  color:var(--wiqi-text-2);
+  text-align:center;
+}
+
+section > nav a {
+  color:var(--wiqi-text-2);
+  display:inline;
+}
+
+section > nav a:hover {
+  text-decoration:none;
+  color:var(--wiqi-highlight);
+}
+
+section > nav a + a::before {
+  content:' • ';
+  color:var(--wiqi-text);
 }
 
 @media (width > 600px) {
   section > nav {
     display:block;
-    text-align:center;
-  }
-
-  section > nav a {
-    display:inline;
-  }
-
-  section > nav a:hover {
-    text-decoration:none;
-    color:var(--wiqi-highlight);
-  }
-
-  section > nav a + a::before {
-    content:' • ';
-    color:var(--wiqi-text);
   }
 
   @media (width > 800px) {
@@ -275,6 +270,14 @@ section > nav {
       color:var(--wiqi-text);
     }
   }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Section Main Text.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+section > span {
+  max-width:60ch;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -303,7 +306,7 @@ footer {
   margin-top:16px;
   font-size:10pt;
   color:var(--wiqi-text-2);
-  text-align:right;
+  text-align:center;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -348,7 +351,6 @@ dt {
 
 dd::before {
   content:'» ';
-  margin-left:16px;
 }
 
 summary {
@@ -357,6 +359,10 @@ summary {
 
 summary:hover {
   cursor:pointer;
+}
+
+abbr {
+  text-decoration:underline var(--wiqi-primary) dotted 2px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
