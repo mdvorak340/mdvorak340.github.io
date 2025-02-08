@@ -170,7 +170,6 @@ body > nav a + a::before {
 
 header {
   margin:var(--wiqi-padding) 0px;
-  padding:var(--wiqi-padding) 0px;
   border-bottom:12px double var(--wiqi-primary);
 }
 
