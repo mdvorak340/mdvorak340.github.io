@@ -239,7 +239,7 @@ section > nav a {
 }
 
 section > nav a + a::before {
-  content:'  •  ';
+  content:' • ';
   color:var(--wiqi-text);
 }
 
