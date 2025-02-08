@@ -356,12 +356,14 @@ ins::before {
   content:'<addendum> ';
   font-style:italic;
   color:var(--wiqi-text-2);
+  white-space:nowrap;
 }
 
 ins::after {
   content:' </addendum>';
   font-style:italic;
   color:var(--wiqi-text-2);
+  white-space:nowrap;
 }
 
 
@@ -382,7 +384,7 @@ h2, main > span > details > summary {
 code {
   font-size:var(--wiqi-font-code-size);
   font-family:var(--wiqi-font-code);
-  white-space:pre;
+  white-space:pre-wrap;
 }
 
 pre > code {
@@ -438,12 +440,14 @@ figcaption::before {
   content:'<caption> ';
   color:var(--wiqi-text-2);
   font-style:italic;
+  white-space:nowrap;
 }
 
 figcaption::after {
   content:' </caption>';
   color:var(--wiqi-text-2);
   font-style:italic;
+  white-space:nowrap;
 }
 
 img {
