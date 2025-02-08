@@ -229,7 +229,7 @@ section > aside {
 section > nav {
   display:none;
   color:var(--wiqi-text-2);
-  text-align:center;
+  text-align:left;
 }
 
 section > nav a {
@@ -248,10 +248,6 @@ section > nav a + a::before {
   }
 
   @media (width > 900px) {
-    section > nav {
-      text-align:left;
-    }
-
     section > nav a {
       display:block;
       margin-left:1ch;
