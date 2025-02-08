@@ -89,9 +89,10 @@
 html {
   font-family:var(--wiqi-font);
   font-size:var(--wiqi-font-size);
-  line-height:1.45;
+  line-height:1.5;
   color:var(--wiqi-text);
   background:var(--wiqi-bg);
+  hyphens:auto;
 }
 
 body {
@@ -130,11 +131,7 @@ a {
 }
 
 a:hover {
-  text-decoration:underline var(--wiqi-highlight);
-}
-
-a:hover::before {
-  text-decoration:none;
+  color:var(--wiqi-highlight);
 }
 
 a::after {
@@ -156,11 +153,6 @@ a[href^="#"]::after {
 
 body > nav {
   text-align:center;
-}
-
-body > nav a:hover {
-  text-decoration:none;
-  color:var(--wiqi-highlight);
 }
 
 body > nav a + a::before {
@@ -243,11 +235,6 @@ section > nav {
 section > nav a {
   color:var(--wiqi-text-2);
   display:inline;
-}
-
-section > nav a:hover {
-  text-decoration:none;
-  color:var(--wiqi-highlight);
 }
 
 section > nav a + a::before {
