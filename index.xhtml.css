@@ -230,6 +230,7 @@ section > nav {
   display:none;
   color:var(--wiqi-text-2);
   text-align:left;
+  margin-bottom:var(--wiqi-padding);
 }
 
 section > nav a {
