@@ -307,10 +307,11 @@ footer {
   margin-top:16px;
   font-size:10pt;
   color:var(--wiqi-text-2);
+  text-align:center;
 }
 
 footer code {
-  font-size:10pt;
+  font-size:9pt;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
