@@ -333,7 +333,7 @@ footer code {
  * Text.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-p, ul, ol, dl, pre, h2, h3, h4, h5, h6, ins, del, aside {
+p, ul, ol, dl, pre, h3, h4, h5, h6, ins, del, aside {
   margin-bottom:var(--wiqi-padding);
   display:block;
 }
@@ -369,11 +369,6 @@ ins::after {
   white-space:nowrap;
 }
 
-
-main > span > details > summary {  /* Pretend h2 section header. */
-  margin-bottom:var(--wiqi-padding);
-}
-
 li {
   margin-left:2ch;
 }
@@ -382,6 +377,7 @@ h2, main > span > details > summary {
   font-size:1.5rem;
   font-weight:bold;
   border-bottom:4px solid var(--wiqi-primary);
+  margin-bottom:var(--wiqi-padding);
 }
 
 code {
