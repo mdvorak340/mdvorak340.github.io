@@ -5,7 +5,7 @@
     <meta http-equiv="CONTENT-TYPE" content="application/xhtml+xml; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Wiqipedia: The Gay Encyclopedia</title>
+    <title>wiqipedia</title>
     <meta name="author" content="Mozzie Dvorak (mdvorak.personal@gmail.com)" />
     <meta name="description" content="gay little wiki demo built for fun" />
     <meta name="theme-color" content="#2D4F67" />
@@ -46,6 +46,7 @@
           switch (this.status) {
             case 200:
               xhrPage.innerHTML = this.responseText;
+              document.title += " | " + pageName;
             default:
               xhrPage.removeAttribute('hidden');
           }
@@ -57,9 +58,9 @@
     </script>
 
     <footer>
-      Website by Mozzie Dvorak
+      <code>char author[14] = "Mozzie Dvorak";</code>
       <br />
-      Hosted on Github Pages
+      <code>char host[13]   = "Github Pages";</code>
     </footer>
 
     <script>
