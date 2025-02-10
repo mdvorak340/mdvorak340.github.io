@@ -295,6 +295,10 @@ section > aside dl {
   text-align:left;
 }
 
+section > aside dd::before {
+  content:'» ';
+}
+
 section > aside > *:last-child {
   margin-bottom:0px;
 }
@@ -312,6 +316,7 @@ footer {
 
 footer code {
   font-size:9pt;
+  white-space:pre-wrap;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -368,12 +373,13 @@ h2, main > span > details > summary {
 code {
   font-size:var(--wiqi-font-code-size);
   font-family:var(--wiqi-font-code);
-  white-space:pre-wrap;
+  hyphens:none;
 }
 
 pre > code {
   display:block;
   overflow:auto;
+  white-space:pre;
   border:2px solid var(--wiqi-text);
   border-radius:8px;
   padding:var(--wiqi-padding);
@@ -381,11 +387,10 @@ pre > code {
 
 dt {
   font-weight:bold;
-  font-size:1.1rem;
 }
 
-dd::before {
-  content:'» ';
+dd + dt {
+  margin-top:4px;
 }
 
 summary {
@@ -418,20 +423,7 @@ figcaption {
   font-size:12pt;
   margin:4px auto;
   text-align:left;
-}
-
-figcaption::before {
-  content:'<caption> ';
   color:var(--wiqi-text-2);
-  font-style:italic;
-  white-space:nowrap;
-}
-
-figcaption::after {
-  content:' </caption>';
-  color:var(--wiqi-text-2);
-  font-style:italic;
-  white-space:nowrap;
 }
 
 img {
