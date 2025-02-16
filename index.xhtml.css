@@ -93,6 +93,8 @@ html {
   color:var(--wiqi-text);
   background:var(--wiqi-bg);
   hyphens:auto;
+  text-rendering:optimizeLegibility;
+  font-kerning:normal;
 }
 
 body {
