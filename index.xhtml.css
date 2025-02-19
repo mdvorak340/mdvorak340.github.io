@@ -425,7 +425,7 @@ figcaption {
   max-width:50ch;
   font-size:12pt;
   margin:4px auto;
-  text-align:left;
+  text-align:justify;
   color:var(--wiqi-text-2);
 }
 
