@@ -1,0 +1,63 @@
+* {
+  font-family:sans-serif;
+  font-size:12pt;
+  color:black;
+}
+
+page-content {
+  display:block;
+
+  margin:auto;
+  padding:16px;
+  max-width:55ch;
+}
+
+plain-text {
+  display:block;
+}
+
+page-title {
+  display:block;
+
+  font-weight:bold;
+  font-size:28px;
+}
+
+plain-text, page-title, code-block, block-quote,
+important-note {
+  display:block;
+
+  margin:8px 0px;
+  padding:8px 0px;
+}
+
+code-block {
+  padding:8px;
+
+  white-space:pre;
+  font-family:monospace;
+
+  background-color:lightgrey;
+  border-radius:8px;
+}
+
+block-quote {
+  border-left:2px solid black;
+  padding-left:16px;
+}
+
+quote-speaker {
+  display:block;
+
+  color:grey;
+
+  padding-top:16px;
+}
+
+important-note {
+  padding:16px;
+  margin:16px;
+
+  background-color:lightblue;
+  border-radius:8px;
+}
