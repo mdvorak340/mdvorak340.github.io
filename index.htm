@@ -61,7 +61,7 @@
       font-weight:normal;
       font-family:var(--fancy-font-family);
     }
-    h1, h2, h3, h4, h5, h6, hr, form, figure, aside, li, p {
+    h1, h2, h3, h4, h5, h6, hr, form, figure, aside, li, p, dl {
       margin-block:1rem;
     }
     html, a, q, i, em, cite, var, b, strong, mark, code {
@@ -75,8 +75,11 @@
       font-size:0.8em;
     }
     a {
-      text-decoration:none;
+      text-decoration:underline 0.1rem solid var(--link);
       color:var(--text);
+    }
+    h1 a, h2 a, h3 a {
+      text-decoration:none;
     }
     a:hover {
       color:var(--link);
@@ -84,6 +87,7 @@
     a::after {
       content:'°';
       color:var(--link);
+      text-decoration:none;
     }
     a[target="_blank"]::after {
       content:'»';
@@ -192,6 +196,21 @@
       /* for some reason having 0 block padding prevents margins from taking
          effect, so instead its 0.1rem */
       padding:0.1rem 1.1rem;
+    }
+    dt {
+      font-family:var(--fancy-font-family);
+    }
+    dd + dt {
+      margin-top:0.5rem;
+    }
+    dd {
+      margin-left:2ch;
+      position:relative;
+    }
+    dd::before {
+      content:'» ';
+      position:absolute;
+      left:-1.5ch;
     }
     #menureturn {
       display:none;
