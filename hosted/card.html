@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Card Demo</title>
+
+  <meta charset="utf-8"/>
+  <meta name="author" content="mozzie"/>
+  <meta name="description" content="card thing with header, img, and columns"/>
+
+  <style>
+    td#main-content {  /* the main content of the page */
+      vertical-align: top;
+    }
+    td#card {  /* the side bar with the card */
+      width: fit-content;
+    }
+    div.card {
+      border: 1px solid black;
+      text-align: center;
+      width: fit-content;
+      margin: auto;  /* centers the card in whatever contains it, remove if you
+                        dont want it centered */
+    }
+    div.card table {  /* the table inside the card */
+      width: 100%;
+      border-collapse: collapse;  /* make all the table columns/rows flush
+                                     against each other */
+    }
+    div.card td {  /* the columns inside the card */
+      border-top: 1px solid black;  /* remove to remove the border above each
+                                       table row */
+    }
+  </style>
+</head>
+
+<body>
+  <table>  <!-- covers the whole page -->
+    <tr>
+      <td id="main-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.</p>
+      </td>
+
+      <td id="card">
+        <div class="card">
+          <h1>text</h1>
+
+          <img src="./funky-lil-guy.jpg"
+               alt="image go here"
+               width="256px">  <!-- change this to change the width of the whole
+                                    card -->
+
+          <table>
+            <tr>  <!-- stands for table row -->
+              <td>column 1</td>  <!-- no clue what td stands for -->
+              <td>column 2</td>
+            </tr>
+            <tr>
+              <td>column 1</td>
+              <td>column 2</td>
+            </tr>
+            <tr>
+              <td>column 1</td>
+              <td>column 2</td>
+            </tr>
+            <tr>
+              <td>column 1</td>
+              <td>column 2</td>
+            </tr>
+            <tr>
+              <td>column 1</td>
+              <td>column 2</td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
