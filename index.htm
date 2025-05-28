@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>mozzie's den</title>
+  <meta name="author" content="mozzie dvorak" />
+  <meta name="color-scheme" content="dark" />
+  <!-- [htmz](https://leanrada.com/htmz) by Lean Rada -->
+  <iframe hidden="" name="htmz" onload="setTimeout(()=>document.querySelector(contentWindow.location.hash||null)?.replaceWith(...contentDocument.body.childNodes))"></iframe>
+  <base target="htmz" />
+  <style>
+    @font-face {
+      font-family:MajorMonoDisplay;
+      src:url('./fnt/MajorMonoDisplay-Regular.ttf');
+      font-display:swap;
+    }
+    @font-face {
+      font-family:KohSantepheap;
+      src:url('./fnt/KohSantepheap-Regular.ttf');
+      font-display:swap;
+    }
+    @font-face {
+      font-family:KohSantepheap;
+      font-weight:bold;
+      src:url('./fnt/KohSantepheap-Bold.ttf');
+      font-display:swap;
+    }
+    * {
+      padding:0;
+      margin:0;
+      box-sizing:border-box;
+      animation:fadein 0.5s;
+    }
+    html {
+      --text:#dcd7ba;
+      --bg:#1f1f28;
+      --bg2:#335;
+      --code:#1d1d15;
+      --audio-block:#779;
+      --primary:#45a;
+      --link:#c44;
+      --font-family:KohSantepheap, sans-serif;
+      --fancy-font-family:MajorMonoDisplay, monospace;
+      font:13pt var(--font-family);
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+      hyphens:auto;
+      counter-reset:figure code;
+    }
+    body {
+      padding:1rem;
+      padding-bottom:4rem;
+      max-width:40rem;
+      min-height:100vh;
+      margin:auto;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      line-height:1.2;
+      font-weight:normal;
+      font-family:var(--fancy-font-family);
+    }
+    h1, h2, h3, h4, h5, h6, hr, form, figure, aside, li, p {
+      margin-block:1rem;
+    }
+    html, a, q, i, em, cite, var, b, strong, mark, code {
+      animation:none;
+    }
+    h3::before {
+      content:'§ ';
+      color:var(--primary);
+    }
+    code {
+      font-size:0.8em;
+    }
+    a {
+      text-decoration:none;
+      color:var(--text);
+    }
+    a:hover {
+      color:var(--link);
+    }
+    a::after {
+      content:'°';
+      color:var(--link);
+    }
+    a[target="_blank"]::after {
+      content:'»';
+    }
+    *.kf-load {
+      animation:load 6s infinite alternate;
+    }
+    figure {
+      text-align:center;
+    }
+    img {
+      max-width:100%;
+      height:auto;
+    }
+    pre {
+      text-align:left;
+      background:var(--code);
+      border-radius:1rem;
+    }
+    figcaption {
+      font-size:0.8rem;
+      text-align:left;
+      width:fit-content;
+      max-width:95%;
+      margin:auto;
+    }
+    figcaption::before {
+      content:'caption:';
+    }
+    img + figcaption::before {
+      counter-increment:figure;
+      content:'figure 'counter(figure)':';
+    }
+    pre + figcaption::before {
+      counter-increment:code;
+      content:'example 'counter(code)':';
+    }
+    li {
+      margin-left:2ch;
+    }
+    li::marker {
+      color:var(--primary);
+    }
+    hr {
+      background:var(--primary);
+      color:var(--primary);
+      height:0.3rem;
+      border:none;
+    }
+    button {
+      display:inline-block;
+      margin-block:0.2rem;
+      cursor:pointer;
+      font:0.9rem var(--font-family);
+    }
+    form button {
+      border:none;
+      border-radius:0.5rem;
+      background:var(--primary);
+      color:var(--text);
+      padding:0.5rem;
+    }
+    form button:hover {
+      background:var(--bg2);
+    }
+    header {
+      border-bottom:0.9rem double var(--primary);
+    }
+    header h1 * {
+      animation:fancyfadein 0.7s;
+      position:relative;
+      letter-spacing:0.5rem;
+    }
+    footer {
+      position:fixed;
+      bottom:1rem;
+      left:50%;
+      transform:translateX(-50%);
+      text-align:center;
+    }
+    audio-block {
+      display:block;
+    }
+    audio-block button {
+      border:0.1rem solid var(--text);
+      border-radius:0.5rem;
+      padding:0.5rem;
+      background:var(--bg2);
+      color:var(--text);
+      animation:none;
+      white-space:nowrap;
+    }
+    audio-block button::before {
+      content:'▶';
+    }
+    audio-block.playing button {
+      animation:playing 1s infinite alternate;
+    }
+    audio-block.playing button::before {
+      content:'♫';
+    }
+    aside {
+      display:block;
+      background:var(--bg2);
+      border-radius:1rem;
+      /* for some reason having 0 block padding prevents margins from taking
+         effect, so instead its 0.1rem */
+      padding:0.1rem 1.1rem;
+    }
+    #menureturn {
+      display:none;
+      text-align:right;
+    }
+    #page + #menureturn {
+      display:block;
+    }
+    @keyframes playing {
+      from {color:var(--text);}
+      to   {color:var(--audio-block);}
+    }
+    @keyframes load {
+      0%   {color:#c44;}
+      20%  {color:#4c4;}
+      40%  {color:#44c;}
+      60%  {color:#cc4;}
+      80%  {color:#c4c;}
+      100% {color:#4cc;}
+    }
+    @keyframes fadein {
+      from {opacity:0;}
+      to   {opacity:1;}
+    }
+    @keyframes fancyfadein {
+      from {opacity:0; top:-0.5rem;}
+      to   {opacity:1; top:0;}
+    }
+  </style>
+</head>
+<body onload="menureturn.submit()">
+  <header>
+    <h1><span>M<span>O<span>Z<span>Z<span>I<span>E<span> <span>D<span>V<span>O<span>R<span>A<span>K</span></span></span></span></span></span></span></span></span></span></span></span></span></h1>
+  </header>
+  <main>
+    <p id="page" class="kf-load">
+      Loading...
+    </p>
+    <form id="menureturn" action="./pgs/menu.htm#page">
+      <button>
+        Back to menu
+      </button>
+    </form>
+  </main>
+  <footer>
+    <audio-block id="bgtrack">
+      <audio loop="">
+        <source src="./aud/Rainy Day - Alec Holowka.mp3"
+                type="audio/mpeg" />
+      </audio>
+      <button onclick="toggleAudio(bgtrack)">
+        Rainy Day by Alec Holowka
+      </button>
+    </audio-block>
+  </footer>
+  <script>
+    function toggleAudio(audioBlock) {
+      let audio = audioBlock.querySelector('audio');
+      if (!audio.paused) {
+        audio.pause();
+        audioBlock.classList.remove('playing');
+      } else {
+        audio.play();
+        audioBlock.classList.add('playing');
+      }
+    }
+  </script>
+</body>
+</html>

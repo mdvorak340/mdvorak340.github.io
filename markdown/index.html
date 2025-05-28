@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Markdown Editor</title>
+    <meta name="author" content="Mozzie Dvorak" />
+    <meta name="description" content="Web-based markdown editor." />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="stylesheet" type="text/css" href="./target/styles.css" />
+    <script type="text/javascript" defer="" src="./target/scripts.js"></script>
+  </head>
+  <body>
+    <main>
+      <section id="input">
+        <textarea oninput="updateOutput(this)"
+                  placeholder="# Header
+
+Text
+
+- List
+- List
+- List
+
+Word
+: Definition
+
+```
+Code
+```
+
+> Quote"></textarea>
+      </section>
+
+      <section id="output">
+        <h1>Header</h1>
+        <p>
+          text text lorem ipsum meow meow.  Olet tosi söpö kissa! text meow foobar
+          cat mrow.  Olet tosi söpö kissa! text text lorem ipsum meow meow.  Olet
+          tosi söpö kissa! text text lorem ipsum meow meow.  Olet tosi söpö kissa!
+          text text lorem ipsum meow meow.  Olet tosi söpö kissa!
+        </p>
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <ul>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+          </ul>
+          <li>list</li>
+          <li>list</li>
+        </ul>
+        <ol>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <ul>
+            <li>list</li>
+          </ul>
+        </ol>
+        <h3>Header</h3>
+        <dl>
+          <dt>definition</dt>
+          <dd>definition</dd>
+          <dt>definition</dt>
+          <dd>definition long definition long definition long definition long
+            definition</dd>
+          <dt>definition</dt>
+          <dd>definition</dd>
+          <dt>definition</dt>
+          <dd>definition</dd>
+          <dd>definition</dd>
+          <dd>definition</dd>
+        </dl>
+        <figure>
+          <pre><code>int main(int argc, char** argv) {
+  printf("Hello, World!\n");
+  return 0;
+}</code></pre>
+          <figcaption>
+            Some code.
+          </figcaption>
+        </figure>
+        <h2>Header</h2>
+        <p>
+          text text lorem ipsum meow meow.  Olet tosi söpö kissa! text meow foobar
+          cat mrow.  Olet tosi söpö kissa! text text lorem ipsum meow meow.  Olet
+          tosi söpö kissa! text text lorem ipsum meow meow.  Olet tosi söpö kissa!
+          text text lorem ipsum meow meow.  Olet tosi söpö kissa!
+        </p>
+        <blockquote>
+          I was on the Apollo 11 spacecraft.  I have sailed the seven seas. I
+          have lived a thousand lives, and through it all, I have seen the
+          truth.  And the truth is crypto.  Invest now.
+        </blockquote>
+      </section>
+
+      <button id="previewButton">
+        Preview
+      </button>
+
+      <details id="settings">
+        <summary>Settings</summary>
+        <form>
+          <input type="checkbox" id="showInput" name="showInput" checked="" />
+          <label for="showInput">Show markdown input.</label>
+          <br />
+
+          <input type="checkbox" id="showOutput" name="showOutput" checked="" />
+          <label for="showOutput">Show rendered output.</label>
+          <br />
+
+          <label for="fontSize">Font size:</label>
+          <input type="number" id="fontSize" name="fontSize" min="1" max="40" value="12" />
+          <br />
+
+          <label for="loadInput">Load markdown file:</label>
+          <input type="file" id="loadInput" name="loadInput" accept="text/markdown" />
+          <br />
+
+          <label for="saveInput">Save markdown file:</label>
+          <button type="button" id="saveInput" name="saveInput">
+            Download
+          </button>
+          <br />
+
+          <p>To save the rendered output as a PDF, print the page.</p>
+        </form>
+      </details>
+    </main>
+    <footer>
+      <p>by Mozzie Dvorak // on Github Pages // with Sass and TypeScript</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+/* fonts ------------------------------------------------------------------- */
+@font-face {
+  font-family: KohSantepheap;
+  src: url("../fonts/KohSantepheap-Regular.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: KohSantepheap;
+  font-weight: bold;
+  src: url("../fonts/KohSantepheap-Bold.ttf");
+  font-display: swap;
+}
+/* reset ------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* page setup -------------------------------------------------------------- */
+html {
+  font: 12pt KohSantepheap, sans-serif;
+  hyphens: auto;
+  line-height: 1.5;
+  color: light-dark(#222, #fff);
+  background: light-dark(#fff, #222);
+  counter-reset: code;
+}
+
+body {
+  max-width: 60rem;
+  height: 100vh;
+  max-height: 100vh;
+  margin: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template: "main" 1fr "foot" min-content/1fr;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: foot;
+}
+
+/* main styling ------------------------------------------------------------ */
+main {
+  display: grid;
+}
+@media (width > 480px) {
+  main {
+    grid-template: "input output" fit-content(100%)/1fr 1fr;
+  }
+  main button#previewButton {
+    display: none;
+  }
+  main details#settings {
+    position: fixed;
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+}
+@media (width <= 480px) {
+  main {
+    grid-template: "input input" 1fr "preview settings" min-content/1fr min-content;
+  }
+  main section#output {
+    display: none;
+  }
+  main details#settings[open] {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  main input#showInput, main input#showOutput {
+    display: none;
+  }
+  main input#showInput + label, main input#showOutput + label {
+    display: none;
+  }
+  main input#showInput + label + br, main input#showOutput + label + br {
+    display: none;
+  }
+}
+
+section#input {
+  grid-area: input;
+}
+
+section#output {
+  grid-area: output;
+}
+
+button#previewButton {
+  grid-area: preview;
+}
+
+details#settings {
+  grid-area: settings;
+}
+
+/* input styling ----------------------------------------------------------- */
+section#input textarea {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  resize: none;
+}
+
+/* output styling ---------------------------------------------------------- */
+section#output {
+  padding: 1rem;
+  border: 0.2rem solid light-dark(#ddd, #444);
+}
+
+/* settings styling -------------------------------------------------------- */
+details#settings {
+  background: light-dark(#ddd, #444);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+@media print {
+  details#settings {
+    display: none;
+  }
+}
+
+/* print styling ----------------------------------------------------------- */
+@page {
+  margin: 1rem;
+  size: 8.5in 11in;
+}
+@media print {
+  details#settings {
+    display: none;
+  }
+  section#input {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  body {
+    grid-template: "main" 1fr/1fr;
+  }
+  body main {
+    grid-template: "output" 1fr/1fr;
+  }
+  section#output {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: auto;
+    padding: 0 1rem;
+    border: none;
+  }
+}
+/* element styling --------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote {
+  margin-block: 1rem;
+}
+
+section {
+  margin: 0.5rem;
+  overflow: auto;
+}
+
+footer {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+ul, ol {
+  margin-left: 2ch;
+}
+
+li {
+  margin-block: 0.5rem;
+}
+
+dd {
+  margin-left: 4ch;
+}
+
+figure {
+  padding: 1rem;
+}
+
+figcaption {
+  max-width: 90%;
+  width: fit-content;
+  margin-inline: auto;
+  font-size: 0.9em;
+}
+
+pre + figcaption::before {
+  counter-increment: code;
+  content: "Listing " counter(code) ": ";
+}
+
+blockquote {
+  border-left: 0.1rem solid light-dark(#222, #fff);
+  padding-left: 1rem;
+}
+
+pre {
+  max-width: 100%;
+  overflow: auto;
+}
+
+/*# sourceMappingURL=styles.css.map */

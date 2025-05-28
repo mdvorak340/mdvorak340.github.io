@@ -1,0 +1,24 @@
+index			:= "./index.html"
+styles		:= "./styles.scss"
+scripts		:= "./*.ts"
+target		:= "./target/"
+scripts_f := "--removeComments --outDir " + target
+styles_d	:= target + "styles.css"
+
+# build and open the site in a browser
+run: build
+	firefox {{index}}
+
+# compile all compiled files
+build:
+	sass {{styles}} {{styles_d}}
+	tsc {{scripts}} {{scripts_f}}
+
+# watch all compiled files; hot reloading
+watch:
+	sass {{styles}} {{styles_d}} --watch &
+	tsc {{scripts}} {{scripts_f}} --watch &
+
+# cleans the target directory
+clean:
+	[ -d {{target}} ] && rm -r {{target}}

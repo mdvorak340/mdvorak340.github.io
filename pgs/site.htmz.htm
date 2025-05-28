@@ -1,0 +1,38 @@
+<p>
+  I have always disliked using <a href="./pgs/site.htmz.javascript.htm#javascript">frameworks</a>
+  <span id="javascript"></span>
+</p>
+<p>
+  but, i was looking at <a target="_blank" href="https://htmx.org/">htmx</a>…
+  maybe i even snuck a surreptitious glance or two at
+  <a target="_blank" href="https://hyperscript.org/"><code>_hyperscript</code></a>… and i
+  started to get that hunger again
+</p>
+<p>
+  i ended up reading through the htmx website when i stumbled upon a great
+  jewel:  <a target="_blank" href="https://leanrada.com/htmz/">htmz</a>
+<p>
+  you see, the problem with htmx is that it is simply too large.  15.7 kB?!?
+  that is like, the size of this html file.  no, htmz is a much more
+  respectable 166 bytes.  that is smaller than this paragraph of text
+</p>
+<p>
+  how does it do it?
+  well, htmz is a hidden <code>&lt;iframe/&gt;</code> set up
+  so that — whenever it loads
+  a page — it copies itself into a container in the parent document.  so if
+  you ever try to open a link with that <code>iframe</code> as the target, it
+  instead overwrites some other part of the page with the content of that
+  link
+</p>
+<p>
+  it misuses anchor tags and form actions to load content, it
+  entirely abuses URL hashes for container selection, it <em>literally consists
+  of a hidden second page that copies itself wholesale into the main page
+  every time it is used</em> — it is perfect
+</p>
+<p>
+  even once you think you have gotten a handle on it, it continues to be
+  fucked in subtle ways that result in so many opportunities to implement fun
+  and unique solutions
+</p>

@@ -1,0 +1,96 @@
+<p>
+  You have probably noticed that I use animations
+  pretty frequently here — the fade-in effect on the text,
+  the wavering effect on the song title when it plays,
+  the loading animation no one ever sees.
+</p>
+<p>
+  I had never used CSS animations before, but it turns
+  out they are actually pretty easy to do!
+</p>
+<p>
+  There are two steps:  first, you define the <q>frames</q>
+  of the animation in a CSS at-rule.  Second, you
+  specify how long the animation lasts, whether or not repeats,
+  et cetera, when you apply the animation to an element.
+</p>
+<p>
+  There are two ways to define the frames that are used
+  here:
+</p>
+<figure>
+  <pre><code>
+    @keyframes fadein {
+      from {opacity:0;}
+      to   {opacity:1;}
+    }
+  </code></pre>
+  <figcaption>
+    The keyframes for the fade-in animation.
+  </figcaption>
+</figure>
+<figure>
+  <pre><code>
+    @keyframes load {
+      0%   {color:#c44;}
+      20%  {color:#4c4;}
+      40%  {color:#44c;}
+      60%  {color:#cc4;}
+      80%  {color:#c4c;}
+      100% {color:#4cc;}
+    }
+  </code></pre>
+  <figcaption>
+    The keyframes for the loading animation.
+  </figcaption>
+</figure>
+<p>
+  There are also two ways to apply the animations:
+</p>
+<figure>
+  <pre><code>
+    * {
+      animation-name:fadein;
+      animation-duration:0.5s;
+    }
+  </code></pre>
+  <figcaption>
+    Every element will walk through the <code>fadein</code>
+    keyframes over half-a-second.
+  </figcaption>
+</figure>
+<figure>
+  <pre><code>
+    * {
+      animation:fadein 0.5s;
+    }
+  </code></pre>
+  <figcaption>
+    The same effect in shorthand.
+  </figcaption>
+</figure>
+<p>
+  There are <em>many</em> more properties than just those
+  two though.  For instance, in the loading animation I
+  also use <code>animation-iteration-count:infinite;</code>
+  to make it loop and <code>animation-direction:alternate;</code>
+  to make to swap between going <q>forwards</q> and <q>backwards</q>.
+</p>
+<figure>
+  <pre><code>
+    *.kf-load {
+      animation:load 6s infinite alternate;
+    }
+  </code></pre>
+  <figcaption>
+    Every element in the <code>kf-load</code> class will
+    walk through the <code>load</code> keyframes once
+    every six seconds, an infinite number of times,
+    alternating direction each time.
+  </figcaption>
+</figure>
+<p>
+  If you are interested in learning more I would check
+  out the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">MDN docs</a>
+  and the related CSS property <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition"><code>transition</code></a>.
+</p>
