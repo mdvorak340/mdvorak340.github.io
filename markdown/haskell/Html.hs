@@ -36,7 +36,6 @@ module Html
 import Text.Regex
 import Data.Maybe
 
-
 -- | An HTML element.  Acts as a Left-child Right-sibling tree.
 data Element
     = None
@@ -101,7 +100,7 @@ text xs = Text xs None
 
 -- | Shorthand to create an Element.RawText with no sibling.
 rawText :: String -> Element
-rawText xs = RawText ('\n':xs) None
+rawText xs = RawText xs None
 
 -- | Shorthand to create an Element.Tag with no sibling.
 tag :: String -> Element -> Element
@@ -116,21 +115,12 @@ body :: State -> Element -> Element
 body state element = Body state 0 element
 
 -- | Maps over every Text element in the given element.
-tmap :: (String -> String) -> Element -> Element
+tmap :: (String -> Element) -> Element -> Element
 tmap _ None = None
-tmap f (Text xs sib) = Text (f xs) (tmap f sib)
+tmap f (Text xs sib) = f xs .: sib
 tmap f (RawText xs sib) = RawText xs $ tmap f sib
 tmap f (Tag name as chd sib) = Tag name as (tmap f chd) (tmap f sib)
 tmap f (Body state fence chd) = Body state fence $ tmap f chd
-
--- | Maps over every Text element in the given element, and
--- converts those Text elements to RawText elements.
-tmapR :: (String -> String) -> Element -> Element
-tmapR _ None = None
-tmapR f (Text xs sib) = RawText (f xs) (tmapR f sib)
-tmapR f (RawText xs sib) = RawText xs $ tmapR f sib
-tmapR f (Tag name as chd sib) = Tag name as (tmapR f chd) (tmapR f sib)
-tmapR f (Body state fence chd) = Body state fence $ tmapR f chd
 
 -------------------------------------------------------------------------------
 
@@ -170,11 +160,78 @@ _ .! _ = error "Only tags can have attributes"
 -------------------------------------------------------------------------------
 
 markup :: Element -> Element
-markup t@(Text _ _) = tmapR finalize $ hyperlink t
-markup elem = elem
+markup element = foldl mu element steps
+  where mu element' step = tmap step element'
+        steps =
+            [ mucode
+            , muq
+            , mua
+            , mubi
+            , mub
+            , mui
+            , musmallCaps
+            , mudel
+            , musub
+            , musup
+            , finalize
+            ]
 
 finalize :: String -> Element
-finalize = rawText . exdash . htmlSafe
+finalize = rawText . exdash
+
+-- | Replaces markdown links with HTML.
+mua :: String -> Element
+mua = muStep "\\[(.*)\\]\\((.*)\\)" $ \(link:href:[]) ->
+    a link .! attr "href" href
+
+-- | Replaces markdown bold italics with HTML.
+mubi :: String -> Element
+mubi = muStep "\\*\\*\\*(.{2,10})\\*\\*\\*" $ \(xs:[]) -> b xs ./: i ""
+
+-- | Replaces markdown bold with HTML.
+mub :: String -> Element
+mub = muStep "\\*\\*(.{2,10})\\*\\*" $ \(xs:[]) -> b xs
+
+-- | Replaces markdown italics with HTML.
+mui :: String -> Element
+mui = muStep "\\*(.{2,10})\\*" $ \(xs:[]) -> i xs
+
+-- | Replaces markdown code with HTML.
+mucode :: String -> Element
+mucode = muStep "`(.{2,10})`" $ \(xs:[]) -> code xs
+
+-- | Replaces markdown smallcaps with HTML.
+musmallCaps :: String -> Element
+musmallCaps = muStep "\\^\\^(.{2,10})\\^\\^" $ \(xs:[]) -> smallCaps xs
+
+-- | Replaces markdown superscripts with HTML.
+musup :: String -> Element
+musup = muStep "\\^(.{2,10})\\^" $ \(xs:[]) -> sup xs
+
+-- | Replaces markdown subscripts with HTML.
+musub :: String -> Element
+musub = muStep "~(.{2,10})~" $ \(xs:[]) -> sub xs
+
+-- | Replaces markdown strikethroughs with HTML.
+mudel :: String -> Element
+mudel = muStep "~~(.{2,10})~~" $ \(xs:[]) -> del xs
+
+-- | Replaces markdown strikethroughs with HTML.
+muq :: String -> Element
+muq = muStep "\"(.{2,10})\"" $ \(xs:[]) -> q xs
+
+-- | TODO: fuck if i know
+muStep :: String -> ([String] -> Element) -> (String -> Element)
+muStep regex transform = step
+  where getMatch = matchRegexAll (mkRegex regex)
+        step xs  =
+            case getMatch xs of
+                Nothing -> text xs
+                (Just (before,_,after,subs)) ->
+                    let new  = transform subs
+                        prev = text before
+                        next = step after
+                    in  prev .: new .: next
 
 -- | Replaces chained dashes with em- and en- dashes.
 exdash :: String -> String
@@ -182,20 +239,6 @@ exdash ('-':'-':'-':xs) = '—' : exdash xs
 exdash ('-':'-':xs) = '–' : exdash xs
 exdash (x:xs) = x : exdash xs
 exdash "" = ""
-
--- | Replaces markdown links with HTML links.
-hyperlink :: Element -> Element
-hyperlink None = None
-hyperlink t@(Text xs sib) =
-    case matchRegexAll linkRegex xs of
-        Nothing -> t
-        (Just (before,_,after,(ys:href:[]))) ->
-            let anchor = a ys .! attr "href" href
-                prev   = text before
-                next   = hyperlink $ text after
-            in prev .: anchor .: next .: sib
-  where linkRegex = mkRegex "\\[(.*)\\]\\((.*)\\)"
-hyperlink _ = error "Can only hyperlink text nodes"
 
 htmlSafe :: String -> String
 htmlSafe [] = []
@@ -236,8 +279,12 @@ hr _ = None
 -- | Converts a string to a p tag, if the string matches a
 -- pattern.
 p :: String -> Element
-p [] = None
 p xs = tag "p" $ text xs
+
+-- | Converts a string to a q tag, if the string matches a
+-- pattern.
+q :: String -> Element
+q xs = tag "q" $ text xs
 
 -- | Converts a string to a dd tag, if the string matches a
 -- pattern.
@@ -248,7 +295,6 @@ dd _ = None
 -- | Converts a string to a dt tag, if the string matches a
 -- pattern.
 dt :: String -> Element
-dt [] = None
 dt xs = tag "dt" $ text xs
 
 -- | Converts a string to a blockquote tag, if the string
@@ -287,7 +333,6 @@ a xs = tag "a" $ text xs
 -- because the "intention" behind the markup is not known; it is
 -- purely structural.
 b :: String -> Element
-b [] = None
 b xs = tag "b" $ text xs
 
 -- | Converts a string to an i tag, if the string
@@ -295,37 +340,31 @@ b xs = tag "b" $ text xs
 -- because the "intention" behind the markup is not known; it is
 -- purely structural.
 i :: String -> Element
-i [] = None
 i xs = tag "i" $ text xs
 
 -- | Converts a string to a code tag, if the string
 -- matches a pattern.
 code :: String -> Element
-code [] = None
 code xs = tag "code" $ rawText xs
 
 -- | Converts a string to a small-caps tag, if the string
 -- matches a pattern.
 smallCaps :: String -> Element
-smallCaps [] = None
 smallCaps xs = tag "small-caps" $ text xs
 
 -- | Converts a string to a sub tag, if the string
 -- matches a pattern.
 sub :: String -> Element
-sub [] = None
 sub xs = tag "sub" $ text xs
 
 -- | Converts a string to a sup tag, if the string
 -- matches a pattern.
 sup :: String -> Element
-sup [] = None
 sup xs = tag "sup" $ text xs
 
 -- | Converts a string to a del tag, if the string
 -- matches a pattern.
 del :: String -> Element
-del [] = None
 del xs = tag "del" $ text xs
 
 -- | Converts a string to an li tag, if the string matches a

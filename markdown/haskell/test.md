@@ -1,6 +1,6 @@
-# Header
+# h1
 
-lorem ipsum ***text*** text foobar baz --- lorem ipsum text **text** foobar [a ***link***!](https://www.spidersge.org) baz lorem ipsum text text foobar baz *lorem* ipsum text text foobar baz `lorem` ipsum text text foobar baz lorem ipsum -- text text foobar baz
+Markdown can have *many* different in-text decorations --- *italics*, **bold**, ***bold italics***, `code`, ^^smallcaps^^, ~~strikethroughs~~, [links](https://www.spidersge.org), and both ~sub~ and ^super^ scripts, to name a few.
 
 ```c
 #include <stdio.h>
@@ -13,37 +13,11 @@ int main(int argc, char** argv)
 }
 ```
 
+---
+
 > "average person eats 3 spiders a year" factoid actualy just statistical error. average person eats 0 spiders per year. Spiders Georg, who lives in cave & eats over 10,000 each day, is an outlier adn should not have been counted
 
 from [spidersge.org](https://www.spidersge.org).
-
-- cat
-- cat
-- cat
-- cat
-- cat
-
-Ace
-: a cat
-: says meow
-
-Apple
-: a dog
-: says bark
-
-- cat
-- cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat cat
-- cat
-- cat
-- cat
-
-- cat
-    - cat
-    - cat
-- cat
-- cat
-
----
 
 1.  yksi
 2.  kaksi
@@ -55,3 +29,22 @@ Apple
 8.  kähdeksän
 9.  yhdeksän
 10. kymmynen
+
+---
+
+Ace
+: a cat
+: says meow
+
+Apple
+: a dog
+: says bark
+
+- first level
+- first level
+- first level
+- first level
+  - second level
+  - second level
+    - third level
+- first level
