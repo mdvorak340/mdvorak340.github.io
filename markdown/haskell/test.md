@@ -1,6 +1,17 @@
 # Header
 
-lorem ipsum ***text*** text foobar baz --- lorem ipsum text **text** foobar baz lorem ipsum text text foobar baz *lorem* ipsum text text foobar baz `lorem` ipsum text text foobar baz lorem ipsum -- text text foobar baz
+lorem ipsum ***text*** text foobar baz --- lorem ipsum text **text** foobar [a ***link***!](https://www.spidersge.org) baz lorem ipsum text text foobar baz *lorem* ipsum text text foobar baz `lorem` ipsum text text foobar baz lorem ipsum -- text text foobar baz
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+    printf("Hello, World!");
+    return 0;
+}
+```
 
 > "average person eats 3 spiders a year" factoid actualy just statistical error. average person eats 0 spiders per year. Spiders Georg, who lives in cave & eats over 10,000 each day, is an outlier adn should not have been counted
 
