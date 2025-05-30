@@ -67,9 +67,15 @@
     html, a, q, i, em, cite, var, b, strong, mark, code {
       animation:none;
     }
+    h3 {
+      position:relative;
+      margin-left:1.5ch;
+    }
     h3::before {
       content:'§ ';
       color:var(--primary);
+      position:absolute;
+      left:-1.5ch;
     }
     code {
       font-size:0.8em;
