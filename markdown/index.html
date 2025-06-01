@@ -42,49 +42,34 @@ Code
           tosi söpö kissa! text text lorem ipsum meow meow.  Olet tosi söpö kissa!
           text text lorem ipsum meow meow.  Olet tosi söpö kissa!
         </p>
-        <ul>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <ul>
-            <li>list</li>
-            <li>list</li>
-            <li>list</li>
-          </ul>
-          <li>list</li>
-          <li>list</li>
-        </ul>
-        <ol>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <ul>
-            <li>list</li>
-          </ul>
-        </ol>
+        <li type="unordered">list</li>
+        <li type="unordered">list</li>
+        <li type="unordered">list</li>
+        <li type="unordered" indent="1">list</li>
+        <li type="unordered" indent="1">list</li>
+        <li type="unordered" indent="1">list</li>
+        <li type="unordered">list</li>
+        <li type="unordered">list</li>
+        <li type="unordered">list</li>
+        <li type="ordered">list</li>
+        <li type="ordered">list</li>
+        <li type="ordered" indent="1">list</li>
         <h3>Header</h3>
-        <dl>
-          <dt>definition</dt>
-          <dd>definition</dd>
-          <dt>definition</dt>
-          <dd>definition long definition long definition long definition long
-            definition</dd>
-          <dt>definition</dt>
-          <dd>definition</dd>
-          <dt>definition</dt>
-          <dd>definition</dd>
-          <dd>definition</dd>
-          <dd>definition</dd>
-        </dl>
-        <figure>
-          <pre><code>int main(int argc, char** argv) {
+        <dt>definition</dt>
+        <dd>definition</dd>
+        <dt>definition</dt>
+        <dd>definition long definition long definition long definition long
+          definition</dd>
+        <dt>definition</dt>
+        <dd>definition</dd>
+        <dt>definition</dt>
+        <dd>definition</dd>
+        <dd>definition</dd>
+        <dd>definition</dd>
+        <pre>int main(int argc, char** argv) {
   printf("Hello, World!\n");
   return 0;
-}</code></pre>
-          <figcaption>
-            Some code.
-          </figcaption>
-        </figure>
+}</pre>
         <h2>Header</h2>
         <p>
           text text lorem ipsum meow meow.  Olet tosi söpö kissa! text meow foobar
@@ -110,6 +95,10 @@ Code
           <label for="showInput">Show markdown input.</label>
           <br />
 
+          <input type="checkbox" id="wrapInput" name="wrapInput" checked="" />
+          <label for="wrapInput">Text wrap markdown input</label>
+          <br />
+
           <input type="checkbox" id="showOutput" name="showOutput" checked="" />
           <label for="showOutput">Show rendered output.</label>
           <br />
@@ -120,6 +109,12 @@ Code
 
           <label for="loadInput">Load markdown file:</label>
           <input type="file" id="loadInput" name="loadInput" accept="text/markdown" />
+          <br />
+
+          <label for="loadExample">Load example file:</label>
+          <button type="button" id="loadExample" name="loadExample">
+            Load
+          </button>
           <br />
 
           <label for="saveInput">Save markdown file:</label>

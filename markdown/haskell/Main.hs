@@ -5,7 +5,7 @@ License     : MIT
 Maintainer  : mdvorak.personal@gmail.com
 
 Reads a Markdown file from the STDIN and prints a corresponding
-HTML file to the STDOUT. 
+HTML file to the STDOUT.
 -}
 
 module Main where

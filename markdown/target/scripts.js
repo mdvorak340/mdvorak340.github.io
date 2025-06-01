@@ -1,3 +1,4 @@
 function updateOutput(input) {
     console.log(input.value);
 }
+var exampleFile = "# Mozzie's Markdown Demo\n\nMarkdown is a pretty simple format --- or, it *started* as a simple format, and quickly grew out of control.\n\nAs I parse it, it consists of \"blocks\" separarted by empty lines, like this:\n\n````md\n# Section Header\n\nParagraph paragraph paragraph.\n\n- List\n- List\n- List\n\n```js\nconsole.log('code');\n```\n````\n\nEach block represents something like a paragraph, a quote, and block of code, etc.\n\nWithin these blocks is text that contains \"markup\", like *italics*, **boldface**, ^^smallcaps^^, `code`, and more.\n\n## Blocks\n\nThere are seven blocks I recognize here:\n\n1.  [Paragraphs](#p).\n2.  [Headers](#hx).\n3.  [Definition lists](#dl).\n4.  [Lists (Ordered and Unordered)](#li).\n5.  [Block quotes](#blockquote).\n6.  [Code blocks](#pre).\n7.  [Context breaks](#hr).\n";

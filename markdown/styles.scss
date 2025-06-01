@@ -209,7 +209,7 @@ details#settings {
 
 /* element styling --------------------------------------------------------- */
 
-h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote {
+h1, h2, h3, h4, h5, h6, p, pre, blockquote {
   margin-block:1rem;
 }
 
@@ -231,34 +231,41 @@ h1:first-child {
   margin-top:0;
 }
 
-ul, ol {
-  margin-left:2ch;
-}
-
 li {
+  margin-left:2ch;
   margin-block:0.5rem;
+
+  &::marker {
+    content:'∙';
+  }
+
+  &[indent="1"] {
+    margin-left:4ch;
+
+    &::marker {
+      content:'∘';
+    }
+  }
+
+  &[indent="2"] {
+    margin-left:6ch;
+
+    &::marker {
+      content:'∙';
+    }
+  }
+
+  &[indent="3"] {
+    margin-left:8ch;
+
+    &::marker {
+      content:'∘';
+    }
+  }
 }
 
 dd {
   margin-left:4ch;
-}
-
-figure {
-  padding:1rem;
-}
-
-figcaption {
-  max-width:90%;
-  width:fit-content;
-
-  margin-inline:auto;
-
-  font-size:0.9em;
-}
-
-pre + figcaption::before {
-  counter-increment:code;
-  content:'Listing 'counter(code)': ';
 }
 
 blockquote {

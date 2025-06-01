@@ -24,9 +24,10 @@ markUpText element = foldl handleStep element steps
   where handleStep element' step = tmap step element'
         steps =
             [ codeStep
-            , qStep
+            , attrStep
             , aStep
             , rawAStep
+            , qStep
             , biStep
             , bStep
             , iStep
@@ -49,6 +50,16 @@ aStep = buildStep "\\[(.*)\\]\\((.*)\\)" $ \(link:href:[]) ->
 rawAStep :: String -> Element
 rawAStep = buildStep "<(.{2,50})>" $ \(href:[]) ->
     a href .:! attr "href" href
+
+-- | Replaces markdown HTML attributes with attributed span tags.
+attrStep :: String -> Element
+attrStep = buildStep "\\[(.*)\\]\\{(.*)\\}" $ \(xs:ys:[]) ->
+    let as = map toAttr (words ys)
+    in  inline xs .:! foldr (!:!) Empty as
+  where toAttr zs =
+            case matchRegex (mkRegex "(.*)=\"(.*)\"") zs of
+                (Just (key:value:[])) -> attr key value
+                _ -> Empty
 
 -- | Replaces markdown bold italics with HTML.
 biStep :: String -> Element
@@ -87,10 +98,10 @@ qStep :: String -> Element
 qStep = buildStep "\"(.{2,100})\"" $ \(xs:[]) -> q xs
 
 buildStep :: String -> ([String] -> Element) -> (String -> Element)
-buildStep regex subTransform = step
-  where getMatch = matchRegexAll (mkRegex regex)
-        step xs  =
-            case getMatch xs of
+buildStep regex subTransform =
+    step
+  where step xs =
+            case matchRegexAll (mkRegex regex) xs of
                 Nothing -> text xs
                 (Just (before,_,after,subs)) ->
                     let new  = subTransform subs

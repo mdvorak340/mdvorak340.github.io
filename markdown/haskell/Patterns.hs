@@ -31,6 +31,7 @@ module Patterns
 , sub
 , sup
 , del
+, inline
 ) where
 
 import Text.Regex
@@ -184,3 +185,8 @@ sup xs = tag "sup" $ text xs
 -- matches a pattern.
 del :: String -> Element
 del xs = tag "del" $ text xs
+
+-- | Converts a string to a span tag, if the string
+-- matches a pattern.
+inline :: String -> Element
+inline xs = tag "span" $ text xs

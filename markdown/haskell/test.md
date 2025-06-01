@@ -5,6 +5,10 @@ Markdown can have *many* different in-text decorations --- *italics*, **bold**,
 <https://www.spidersge.org>, and both ~sub~ and ^super^ scripts, to name
 a few.
 
+You can also alter specific HTML attributes, like [color]{style="color:#45c"}.
+
+Skip to [definition lists](#h2).
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +46,7 @@ header 1
 ========
 stuff
 
-header 2
+[header 2]{id="h2"}
 --------
 also stuff
 
