@@ -1,6 +1,9 @@
 # h1
 
-Markdown can have *many* different in-text decorations --- *italics*, **bold**, ***bold italics***, `code`, ^^smallcaps^^, ~~strikethroughs~~, [links](https://www.spidersge.org), and both ~sub~ and ^super^ scripts, to name a few.
+Markdown can have *many* different in-text decorations --- *italics*, **bold**,
+`code`, ^^smallcaps^^, ~~strikethroughs~~, ***bold italics***,
+<https://www.spidersge.org>, and both ~sub~ and ^super^ scripts, to name
+a few.
 
 ```c
 #include <stdio.h>
@@ -13,9 +16,14 @@ int main(int argc, char** argv)
 }
 ```
 
----
+-------
 
-> "average person eats 3 spiders a year" factoid actualy just statistical error. average person eats 0 spiders per year. Spiders Georg, who lives in cave & eats over 10,000 each day, is an outlier adn should not have been counted
+stuff
+
+> "average person eats 3 spiders a year" factoid actualy just statistical
+> error. average person eats 0 spiders per year. Spiders Georg, who lives in
+> cave & eats over 10,000 each day, is an outlier adn should not have been
+> counted
 
 from [spidersge.org](https://www.spidersge.org).
 
@@ -30,7 +38,13 @@ from [spidersge.org](https://www.spidersge.org).
 9.  yhdeksän
 10. kymmynen
 
----
+header 1
+========
+stuff
+
+header 2
+--------
+also stuff
 
 Ace
 : a cat
@@ -39,6 +53,15 @@ Ace
 Apple
 : a dog
 : says bark
+
+---
+
+long
+def
+: value
+
+key
+: value
 
 - first level
 - first level
