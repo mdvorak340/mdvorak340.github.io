@@ -15,7 +15,8 @@
   <body>
     <main>
       <section id="input">
-        <textarea oninput="updateOutput(this)"
+        <textarea id="inputText"
+                  oninput="updateOutput(this)"
                   placeholder="# Header
 
 Text
@@ -112,7 +113,10 @@ Code
           <br />
 
           <label for="loadExample">Load example file:</label>
-          <button type="button" id="loadExample" name="loadExample">
+          <button type="button"
+                  id="loadExample"
+                  name="loadExample"
+                  onclick="loadExampleIntoInput(document.getElementById('inputText'))">
             Load
           </button>
           <br />

@@ -222,4 +222,8 @@ pre {
   overflow: auto;
 }
 
+textarea {
+  hyphens: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
