@@ -242,4 +242,8 @@ textarea {
   hyphens: none;
 }
 
+small-caps {
+  font-variant: small-caps;
+}
+
 /*# sourceMappingURL=styles.css.map */
