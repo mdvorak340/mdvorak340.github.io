@@ -1,4 +1,7 @@
-$font:KohSantepheap, sans-serif;
+$font:Outfit, sans-serif;
+$headFont:Outfit, sans-serif;
+$bodyFont:KohSantepheap, serif;
+$codeFont:DMMono, monospace;
 $fg:light-dark(#222, #fff);
 $fg2:light-dark(#444, #ddd);
 $bg:light-dark(#fff, #222);
@@ -8,16 +11,35 @@ $mobileWidth:480px;
 /* fonts ------------------------------------------------------------------- */
 
 @font-face {
+  font-family:Outfit;
+  src:url('./fonts/Outfit-VariableFont_wght.ttf');
+  font-display:swap;
+}
+
+@font-face {
   font-family:KohSantepheap;
-  src:url('../fonts/KohSantepheap-Regular.ttf');
+  src:url('./fonts/KohSantepheap-Regular.ttf');
   font-display:swap;
 }
 
 @font-face {
   font-family:KohSantepheap;
   font-weight:bold;
-  src:url('../fonts/KohSantepheap-Bold.ttf');
+  src:url('./fonts/KohSantepheap-Bold.ttf');
   font-display:swap;
+}
+
+@font-face {
+  font-family:DMMono;
+  src:url('./fonts/DMMono-Regular.ttf');
+  font-display:swap;
+}
+
+@font-face {
+  font-family:DMMono;
+  src:url('./fonts/DMMono-Italic.ttf');
+  font-display:swap;
+  font-style:italic;
 }
 
 /* reset ------------------------------------------------------------------- */
@@ -26,12 +48,13 @@ $mobileWidth:480px;
   margin:0;
   padding:0;
   box-sizing:border-box;
+  font-weight:normal;
 }
 
 /* page setup -------------------------------------------------------------- */
 
 html {
-  font:12pt $font;
+  font:13pt $font;
   hyphens:auto;
   line-height:1.5;
 
@@ -149,6 +172,12 @@ section#input {
 section#output {
   padding:1rem;
   border:0.2rem solid $bg2;
+
+  font-family:$bodyFont;
+
+  h1, h2, h3, h4, h5, h6, dt {
+    font-family:$headFont;
+  }
 }
 
 /* settings styling -------------------------------------------------------- */
@@ -166,20 +195,12 @@ details#settings {
 /* print styling ----------------------------------------------------------- */
 
 @page {
-  margin:1rem;
+  margin:0;
   size:8.5in 11in;
 }
 
 @media print {
-  details#settings {
-    display:none;
-  }
-
-  section#input {
-    display:none;
-  }
-
-  footer {
+  details#settings, section#input, footer {
     display:none;
   }
 
@@ -201,7 +222,7 @@ details#settings {
     max-height:100%;
 
     margin:auto;
-    padding:0 1rem;
+    padding:1rem 2rem;
 
     border:none;
   }
@@ -223,10 +244,6 @@ footer {
   text-align:center;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight:normal;
-}
-
 h1:first-child {
   margin-top:0;
 }
@@ -236,14 +253,14 @@ li {
   margin-block:0.5rem;
 
   &::marker {
-    content:'∙';
+    content:'∙ ';
   }
 
   &[indent="1"] {
     margin-left:4ch;
 
     &::marker {
-      content:'∘';
+      content:'∘ ';
     }
   }
 
@@ -251,7 +268,7 @@ li {
     margin-left:6ch;
 
     &::marker {
-      content:'∙';
+      content:'∙ ';
     }
   }
 
@@ -259,7 +276,7 @@ li {
     margin-left:8ch;
 
     &::marker {
-      content:'∘';
+      content:'∘ ';
     }
   }
 }
@@ -271,6 +288,11 @@ dd {
 blockquote {
   border-left:0.1rem solid $fg;
   padding-left:1rem;
+}
+
+code, pre, textarea {
+  font:0.9rem $codeFont;
+  line-height:1.5;
 }
 
 pre {

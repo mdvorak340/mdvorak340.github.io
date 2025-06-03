@@ -1,24 +1,28 @@
-index			:= "./index.html"
-styles		:= "./styles.scss"
-scripts		:= "./*.ts"
-target		:= "./target/"
+index     := "./index.html"
+styles    := "./styles.scss"
+scripts   := "./*.ts"
+public    := "./public/* ./public/.htaccess"
+target    := "./www/"
 scripts_f := "--removeComments --outDir " + target
-styles_d	:= target + "styles.css"
+styles_d  := target + "styles.css"
 
 # build and open the site in a browser
 run: build
-	firefox {{index}}
+  $(cd {{target}}; firefox {{index}})
 
-# compile all compiled files
-build:
-	sass {{styles}} {{styles_d}}
-	tsc {{scripts}} {{scripts_f}}
+# clean the project and compile all compiled files
+build: clean
+  cp {{public}} {{target}} -r
+  cp {{index}} {{target}}
+  sass {{styles}} {{styles_d}}
+  tsc {{scripts}} {{scripts_f}}
 
 # watch all compiled files; hot reloading
 watch:
-	sass {{styles}} {{styles_d}} --watch &
-	tsc {{scripts}} {{scripts_f}} --watch &
+  sass {{styles}} {{styles_d}} --watch &
+  tsc {{scripts}} {{scripts_f}} --watch &
 
 # cleans the target directory
 clean:
-	[ -d {{target}} ] && rm -r {{target}}
+  if [ -d {{target}} ]; then rm -r {{target}}; fi
+  mkdir {{target}}

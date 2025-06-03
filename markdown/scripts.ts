@@ -1,17 +1,17 @@
 function updateOutput(input: HTMLTextAreaElement): void {
-    console.log(input.value);
+  console.log(input.value);
 }
 
 function loadExampleIntoInput(input: HTMLTextAreaElement): void {
-    input.value = exampleFile;
-    console.log(input.value);
+  input.value = exampleFile;
+  console.log(input.value);
 }
 
 const exampleFile = `# Mozzie's Markdown Demo
 
 Markdown is a pretty simple format --- or, it *started* as a simple format, and quickly grew out of control.  I will attempt (and fail) to be brief but thorough as I explain how it is implemented here.
 
-As I parse it, it consists of "blocks" seperated by empty lines, like this:
+As I parse it, markdown consists of "blocks" separated by empty lines, like this:
 
 \`\`\`\`md
 # Section Header
@@ -162,4 +162,4 @@ another context
 \`\`\`
 
 ## Markup
-`
+`;
