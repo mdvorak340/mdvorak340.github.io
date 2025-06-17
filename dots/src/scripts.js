@@ -1,5 +1,5 @@
 // Initial imports.
-import { button, caption, className, code, dd, dl, dt, em, figure, footer, h1, h2, hr, id, onclick, p, pre, style, table, td, tr } from '@mdvorak340/dots'
+import { button, caption, className, code, dd, dl, dt, em, figure, footer, h1, h2, hr, id, onclick, p, pre, table, td, tr } from '@mdvorak340/dots'
 
 // Syntax highlighting; external package.
 import hljs from 'highlight.js/lib/core'
