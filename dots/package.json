@@ -9,7 +9,8 @@
   "author": "Mozzie Dvorak",
   "license": "MIT",
   "dependencies": {
-    "@mdvorak340/dots": "^1.0.0"
+    "@mdvorak340/dots": "^1.0.0",
+    "highlight.js": "^11.11.1"
   },
   "devDependencies": {
     "webpack": "^5.99.9",

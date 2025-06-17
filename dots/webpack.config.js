@@ -6,5 +6,5 @@ module.exports = {
     filename: 'bundled.js',
     path: path.resolve(__dirname, 'target'),
   },
-  mode: 'development',
+  mode: 'production',
 };
