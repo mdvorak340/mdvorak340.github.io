@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/scripts.js',
   output: {
     filename: 'bundled.js',
-    path: path.resolve(__dirname, 'target'),
+    path: path.resolve(__dirname, '.'),
   },
   mode: 'production',
 };
