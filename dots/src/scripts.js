@@ -19,18 +19,21 @@ const dlContents = [
   dt(jsCode('tag(name, ...children)')),
   dd(
     'The main function; used to create tags of the given name.  The children',
-    ' can be other ', jsCode('HTMLElement'), 's, attributes, event handlers,',
+    ' can be either ', jsCode('HTMLElement'), 's, attributes, event handlers,',
     ' or plain strings.',
     figure(
       jsCodeBlock('tag("h1", "A Header")'),
       jsCodeBlock(`tag("ul",\n  tag("li", "A List Item"),\n)`),
     ),
   ),
-  dt(jsCode('attr(key, value)')),
+  dt(jsCode('attr(key, ...values)')),
   dd(
     'Used to create HTML attributes (', jsCode('Attr'), 's).  Takes a simple',
     ' key/value pair of strings.',
-    figure(jsCodeBlock('attr("href", "https://www.spidersge.org")')),
+    figure(
+      jsCodeBlock('attr("href", "https://www.spidersge.org")'),
+      jsCodeBlock('attr("class", "centered", "container")'),
+    ),
   ),
   dt(jsCode('on(event, function)')),
   dd(
@@ -51,7 +54,8 @@ const tableOfCode = table(
 )
 
 // Fetch this file for use as the extended example.
-const thisCode = await fetch('../src/scripts.js').then(resp => resp.text())
+const thisCode = await fetch('./src/scripts.js')
+  .then(resp => resp.text())
 
 // The name of library, complete with stylization.
 const libName = code('dots', className('fancy'))
