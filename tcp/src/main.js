@@ -1,9 +1,25 @@
-import { button, input, output, tag, h1, form, on, fieldset, legend, label, br, hr, table, tr, td, p, details, summary, ul, li, pre, code, a, samp, footer, main, header } from 'ellipsi'
+import { button, input, output, h1, form, on, fieldset, legend, label, br, hr, table, tr, td, p, details, summary, ul, li, pre, code, a, samp, footer, main, header, datalist, option } from 'ellipsi'
+
+const knownWebSockets = [
+  'wss://ws.vi-server.org/mirror',
+]
+
+const ConnectionOptions = datalist(
+  { id: 'connection-options' },
+  ...knownWebSockets.map((ws) => option({ value: ws })),
+)
+
+const ConnectionInput = input({
+  type: 'text',
+  id: 'connection',
+  list: ConnectionOptions.id,
+  placeholder: knownWebSockets[0],
+})
+
+const MessageInput = input({ type: 'text', id: 'message' })
 
 const FormButton = (...x) => button({ type: 'button' }, ...x)
 
-const ConnectionInput = input({ id: 'connection' })
-const MessageInput = input({ id: 'message' })
 const ConnectButton = FormButton('Connect', { id: 'connect-button' })
 const DisconnectButton = FormButton('Disconnect', { id: 'disconnect-button' })
 const SendButton = FormButton('Send', { id: 'send-button' })
@@ -19,7 +35,7 @@ const handleOpen = () => {
 }
 
 const handleMessage = (event) => {
-  console.log(event)
+  Incoming.prepend(pre(code(event.data)), hr())
 }
 
 const handleClose = () => {
@@ -92,15 +108,16 @@ const Sources = [
     'Stack overflow on reading from sockets in C',
     { href: 'https://stackoverflow.com/questions/666601/what-is-the-correct-way-of-reading-from-a-tcp-socket-in-c-c' },
   ),
+  a(
+    'CLI tool for probing websockets',
+    { href: 'https://github.com/vi/websocat' },
+  )
 ]
 
 const Doc = [
   header(
     h1('TCP Pertubation & Response'),
-    p(
-      'A simple interface for making and probing TCP connections using the',
-      ' WebSocket API.',
-    ),
+    p('A simple interface for making and probing TCP connections using the WebSocket API.'),
   ),
   main(
     form(
@@ -108,8 +125,9 @@ const Doc = [
       on('keydown', handleForm),
       fieldset(
         legend('Input'),
-        label('Connection URI', { for: ConnectionInput.id }),
+        label('Connection URL', { for: ConnectionInput.id }),
         ConnectionInput,
+        ConnectionOptions,
         ConnectButton,
         DisconnectButton,
         br(),
@@ -124,11 +142,11 @@ const Doc = [
         legend('Output'),
         table(
           tr(
-            td(label('Pertubation', { for: Outgoing.id })),
+            td(label('Pertubation', { for: Outgoing.id }), { class: 'nosmall' }),
             td(label('Response', { for: Incoming.id })),
           ),
           tr(
-            td(samp(Outgoing)),
+            td(samp(Outgoing), { class: 'nosmall' }),
             td(samp(Incoming)),
           ),
         ),
@@ -136,7 +154,7 @@ const Doc = [
     ),
     details(
       summary('Sources'),
-      ul(...Sources.map(s => li(s))),
+      ul(...Sources.map((source) => li(source))),
     ),
   ),
   footer(
@@ -144,10 +162,7 @@ const Doc = [
       'by Mozzie Dvorak // with ',
       a('Ellipsi', { href: 'https://www.npmjs.com/package/ellipsi' }),
       ' // view ',
-      a(
-        'page source',
-        { href: 'https://github.com/mdvorak340/mdvorak340.github.io/tree/main/tcp' }
-      ),
+      a('page source', { href: 'https://github.com/mdvorak340/mdvorak340.github.io/tree/main/tcp' }),
     ),
   ),
 ]

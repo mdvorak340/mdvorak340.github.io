@@ -84,12 +84,13 @@ h1,
 p,
 hr,
 fieldset,
+input[type="text"],
 ul {
-  margin-block: 1rem;
+  display:block;
+  margin-block: 0.5rem;
 }
 
 li {
-  margin-block: 0.5rem;
   margin-left: 2ch;
 }
 
@@ -97,7 +98,11 @@ fieldset {
   padding: 1rem;
 }
 
-* + button {
+input[type="text"] {
+  width:100%;
+}
+
+button + button {
   margin-left: 1ch;
 }
 
@@ -130,9 +135,16 @@ samp {
   display: block;
   background: #ddd;
   overflow: auto;
+  font-size:0.8em;
 }
 
 footer {
   font-size: 0.9rem;
   text-align: center;
+}
+
+@media screen and (width < 600px) {
+  *.nosmall {
+    display:none;
+  }
 }
