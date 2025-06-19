@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  line-height: 1.5;
+  font-size: 12pt;
+}
+
+body {
+  max-width: 50rem;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 1rem;
+
+  display: grid;
+  grid-template:
+    "head" min-content
+    "main" 1fr
+    "foot" min-content
+    / 1fr;
+}
+
+#status::after {
+  content: "Not connected";
+}
+
+#status[type="open"]::after {
+  color: green;
+  content: "Connected";
+}
+
+#status[type="loading"]::after {
+  color: green;
+  content: "Connecting...";
+  animation: load 1s infinite alternate;
+}
+
+#status[type="failed"]::after {
+  color: red;
+  content: "Failed";
+}
+
+#status[type="closed"]::after {
+  content: "Closed";
+}
+
+#outgoing > *,
+#incoming > * {
+  animation: flicker 1.2s;
+}
+
+@keyframes load {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+h1,
+p,
+hr,
+fieldset,
+ul {
+  margin-block: 1rem;
+}
+
+li {
+  margin-block: 0.5rem;
+  margin-left: 2ch;
+}
+
+fieldset {
+  padding: 1rem;
+}
+
+* + button {
+  margin-left: 1ch;
+}
+
+label::after {
+  content: ": ";
+}
+
+table {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row;
+}
+
+tr {
+  display: grid;
+  gap: 1rem;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+td {
+  max-width: 100%;
+  overflow: auto;
+}
+
+samp {
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid black;
+  display: block;
+  background: #ddd;
+  overflow: auto;
+}
+
+footer {
+  font-size: 0.9rem;
+  text-align: center;
+}
