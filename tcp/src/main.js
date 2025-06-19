@@ -33,12 +33,13 @@ const handleError = () => {
 }
 
 const handleForm = (event) => {
-  switch (event.target, event.type) {
-    case ConnectionInput, 'keydown':
-      if (event.key !== 'Enter') {
-        break;
-      }
-    case ConnectButton, 'click':
+  const target = event.target;
+  const type = event.type;
+  const key = type === 'keydown' ? event.key : null;
+
+  switch (true) {
+    case target === ConnectionInput && key === 'Enter':
+    case target === ConnectButton && type === 'click':
       if (ConnectionInput.value) {
         try {
           conn = new WebSocket(ConnectionInput.value)
@@ -54,17 +55,14 @@ const handleForm = (event) => {
       }
       break;
 
-    case DisconnectButton, 'click':
+    case target === DisconnectButton && type === 'click':
       if (conn?.readyState === WebSocket.OPEN) {
         conn.close()
       }
       break;
 
-    case MessageInput, 'keydown':
-      if (event.key !== 'Enter') {
-        break;
-      }
-    case SendButton, 'click':
+    case target === MessageInput && key === 'Enter':
+    case target === SendButton && type === 'click':
       if (MessageInput.value && conn?.readyState === WebSocket.OPEN) {
         conn.send(MessageInput.value)
         Outgoing.prepend(pre(code(MessageInput.value)), hr())
