@@ -1,4 +1,4 @@
-import { button, input, output, h1, form, on, fieldset, legend, label, br, hr, table, tr, td, p, details, summary, ul, li, pre, code, a, samp, footer, main, header, datalist, option } from 'ellipsi'
+import { button, input, output, h1, form, on, fieldset, legend, label, hr, table, tr, td, p, details, summary, ul, li, pre, code, a, samp, footer, main, header, datalist, option } from 'ellipsi'
 
 const knownWebSockets = [
   'wss://ws.vi-server.org/mirror',
@@ -130,7 +130,7 @@ const Doc = [
         ConnectionOptions,
         ConnectButton,
         DisconnectButton,
-        br(),
+        hr(),
         label('Connection status', { for: Status.id }),
         Status,
         hr(),
