@@ -8,7 +8,7 @@ const ErrorPageNoSource = () => [
   ErrorPage(
     h1('ERROR : No URL given'),
     p('To load a page and view its source, navigate to'),
-    UrlBlock('mdvorak340.github.io/echo?url=www.your.target.com'),
+    UrlBlock('mdvorak340.github.io/echo/?url=www.your.target.com'),
   ),
 ]
 
@@ -17,7 +17,7 @@ const ErrorPageBadSource = (href) => [
     h1('ERROR : Bad URL'),
     p('Failed to load the given URL (', q(code(href)), ').'),
     p('The proper way to target a URL is'),
-    UrlBlock('mdvorak340.github.io/echo?url=www.your.target.com'),
+    UrlBlock('mdvorak340.github.io/echo/?url=www.your.target.com'),
   ),
 ]
 

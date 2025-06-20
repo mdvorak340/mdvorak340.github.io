@@ -2,7 +2,9 @@
   "name": "echo",
   "version": "1.0.0",
   "description": "Loads the given URL and displays the source with syntax highlighting",
-  "scripts": {},
+  "scripts": {
+    "build": "npx webpack"
+  },
   "author": "Mozzie Dvorak",
   "license": "MIT",
   "dependencies": {
