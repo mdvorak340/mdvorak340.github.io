@@ -1,9 +1,9 @@
 {
-  "name": "tcp",
+  "name": "ws",
   "version": "1.0.0",
-  "description": "Simple form for interacting with TCP connections",
+  "description": "Simple form for interacting with websocket connections",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx webpack"
   },
   "author": "Mozzie Dvorak",
   "license": "MIT",

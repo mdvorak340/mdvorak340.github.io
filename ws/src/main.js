@@ -116,8 +116,8 @@ const Sources = [
 
 const Doc = [
   header(
-    h1('TCP Pertubation & Response'),
-    p('A simple interface for making and probing TCP connections using the WebSocket API.'),
+    h1('Websocket Pertubation & Response'),
+    p('A simple interface for making and probing websocket connections using the WebSocket API.'),
   ),
   main(
     form(
@@ -162,7 +162,7 @@ const Doc = [
       'by Mozzie Dvorak // with ',
       a('Ellipsi', { href: 'https://www.npmjs.com/package/ellipsi' }),
       ' // view ',
-      a('page source', { href: 'https://github.com/mdvorak340/mdvorak340.github.io/tree/main/tcp' }),
+      a('page source', { href: 'https://github.com/mdvorak340/mdvorak340.github.io/tree/main/ws' }),
     ),
   ),
 ]
