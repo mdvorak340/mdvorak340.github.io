@@ -28,7 +28,10 @@ kbd {
 
 body {
   padding: 1rem;
-  width: 100vw;
+  min-width:80ch;
+  width: fit-content;
+  max-width:100vw;
+  margin-inline:auto;
   height: 100vh;
 }
 
