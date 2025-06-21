@@ -32,6 +32,7 @@
       margin:0;
       box-sizing:border-box;
       animation:fadein 0.5s;
+      font-weight:normal;
     }
     html {
       --text:#dcd7ba;
@@ -57,10 +58,10 @@
       min-height:100vh;
       margin:auto;
     }
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, dt {
       line-height:1.2;
-      font-weight:normal;
       font-family:var(--fancy-font-family);
+      letter-spacing:0.1rem;
     }
     h1, h2, h3, h4, h5, h6, hr, form, figure, aside, li, p, dl {
       margin-block:1rem;
@@ -203,9 +204,6 @@
       /* for some reason having 0 block padding prevents margins from taking
          effect, so instead its 0.1rem */
       padding:0.1rem 1.1rem;
-    }
-    dt {
-      font-family:var(--fancy-font-family);
     }
     dd + dt {
       margin-top:0.5rem;
