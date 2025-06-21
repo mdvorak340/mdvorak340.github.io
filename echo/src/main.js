@@ -4,11 +4,13 @@ import hljs from 'highlight.js'
 const ErrorPage = (...x) => div({ class: 'error-page' }, ...x)
 const UrlBlock = (...x) => pre({ class: 'language-plaintext' }, code(...x))
 
+const validUrl = 'mdvorak340.github.io/echo/?url=https://your.target.com'
+
 const ErrorPageNoSource = () => [
   ErrorPage(
     h1('ERROR : No URL given'),
     p('To load a page and view its source, navigate to'),
-    UrlBlock('mdvorak340.github.io/echo/?url=www.your.target.com'),
+    UrlBlock(validUrl),
   ),
 ]
 
@@ -17,7 +19,7 @@ const ErrorPageBadSource = (href) => [
     h1('ERROR : Bad URL'),
     p('Failed to load the given URL (', q(code(href)), ').'),
     p('The proper way to target a URL is'),
-    UrlBlock('mdvorak340.github.io/echo/?url=www.your.target.com'),
+    UrlBlock(validUrl),
   ),
 ]
 
@@ -41,7 +43,7 @@ const main = async () => {
       break assembly
     }
 
-    const href = 'https://' + params.get('url')
+    const href = params.get('url')
     try {
       const SourceContent = await LoadSource(href)
       Page = SuccessPage(SourceContent)
