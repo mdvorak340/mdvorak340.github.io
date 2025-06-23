@@ -1,0 +1,5 @@
+= Mozzie's Den
+Mozzie Dvorak <mdvorak.personal@gmail.com>
+June 23, 2025
+
+== Directory Structure
