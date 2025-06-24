@@ -46,6 +46,7 @@ const main = async () => {
     const href = params.get('url')
     try {
       const SourceContent = await LoadSource(href)
+      document.title += ': ' + href
       Page = SuccessPage(SourceContent)
     } catch {
       Page = ErrorPageBadSource(href)
