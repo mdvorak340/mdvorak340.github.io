@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Mozzie&#39;s Den</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in About on Mozzie&#39;s Den</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jun 2025 19:21:47 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>This Site</title>
+      <link>http://localhost:1313/posts/this-site/</link>
+      <pubDate>Mon, 23 Jun 2025 19:21:47 -0500</pubDate>
+      <guid>http://localhost:1313/posts/this-site/</guid>
+      <description>&lt;h1 id=&#34;addiction-is-a-powerful-thing&#34;&gt;Addiction is a powerful thing&lt;/h1&gt;&#xA;&lt;p&gt;fuck shit cunt ass meow&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>what I think</title>
+      <link>http://localhost:1313/inserts/what-i-think/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/inserts/what-i-think/</guid>
+      <description>&lt;h1 id=&#34;my-thoughts&#34;&gt;MY thoughts&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;  &#xA;    &lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/this-site/&#34;&gt;This Site&lt;/li&gt;&#xA;  &#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>what I&#39;ve made</title>
+      <link>http://localhost:1313/inserts/what-ive-made/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/inserts/what-ive-made/</guid>
+      <description>&lt;h1 id=&#34;i-tinker-around&#34;&gt;I Tinker Around&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>where I am</title>
+      <link>http://localhost:1313/inserts/where-i-am/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/inserts/where-i-am/</guid>
+      <description>&lt;h1 id=&#34;yea-you-will-never-catch-me-posting&#34;&gt;YEA You Will Never Catch Me Posting&lt;/h1&gt;&#xA;&lt;p&gt;But if I &lt;em&gt;do&lt;/em&gt;, here is where I would:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.tumblr.com/a-few-cards-short-of-a-deck&#34;&gt;Tumblr&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://bsky.app/profile/mdvorak.bsky.social&#34;&gt;Bluesky&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://helixpaint.com/drawings/user/3366&#34;&gt;Helixpaint&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;You can also find my projects here:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/mdvorak340&#34;&gt;Github&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/~mdvorak340&#34;&gt;Npm.js&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>where I learn</title>
+      <link>http://localhost:1313/inserts/where-i-learn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/inserts/where-i-learn/</guid>
+      <description>&lt;h1 id=&#34;there-are-so-many-pdfs-on-the-internet-yaknow&#34;&gt;there are SO many PDFS on the Internet, YAKNOW?&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>who I am</title>
+      <link>http://localhost:1313/inserts/who-i-am/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/inserts/who-i-am/</guid>
+      <description>&lt;h1 id=&#34;heya&#34;&gt;HEYA!&lt;/h1&gt;&#xA;&lt;p&gt;gay ass autistic furry&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

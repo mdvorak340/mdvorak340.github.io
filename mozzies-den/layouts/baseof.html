@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base target="_blank" rel="noopener noreferrer" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>Mozzie's Den</title>
+    <meta name="author" content="Mozzie Dvorak" />
+    <meta name="description" content="{{ .Description }}" />
+
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <script defer="" src="/htmx.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="kf-cascade-fadein">
+        <span>M<span>O<span>Z<span>Z<span>I<span>E<span> <span>D<span>V<span>O<span>R<span>A<span>K</span></span></span></span></span></span></span></span></span></span></span></span></span>
+      </h1>
+    </header>
+
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+      by Mozzie Dvorak // using Hugo and htmx
+    </footer>
+  </body>
+</html>

@@ -1,5 +1,46 @@
 = Mozzie's Den
 Mozzie Dvorak <mdvorak.personal@gmail.com>
-June 23, 2025
+2025-06-23
+:toc:
+:site-url: https://mdvorak340.github.io/
 
-== Directory Structure
+{site-url}[Mozzie's Den] is the personal homepage of Mozzie Dvorak.  The site
+is generated from Markdown using https://gohugo.io[Hugo] and runs with
+https://htmx.org[htmx] as its only runtime dependency.
+
+.All dependencies
+* https://gohugo.io[Hugo] for generating the site from Markdown
+* https://htmx.org[htmx] for seamless page loading
+* https://github.com/casey/just[Just] for aliasing development scripts
+* https://asciidoctor.org/[Asciidoctor] for building the documentation
+  you're reading right now
+
+== Directory structure
+
+`archetypes/`::
+    `default.md`:::
+        The markdown template that is cloned when running `hugo new content`.
+`config.yaml`::
+    Site-wide configuration.
+`content/`::
+    Contains all markdown source documents.
+`doc.html`::
+    The HTML documention generated from the README (what you're reading now).
+`justfile`::
+    Collection of aliases for different development task scripts.
+`layouts/`::
+    Contains all HTML/Hugo templates used to assemble the final site.
+`public`::
+    Contains the final site.
+`README.adoc`::
+    The README used to generate the file you're reading.
+`static/`::
+    Contains files that are copied as-is into the generated site.
+    `favicon.ico`:::
+        The website's icon.
+    `styles.css`:::
+        The stylesheet for the site.
+
+== Integrating htmx with Hugo
+
+== Adding new blog posts
