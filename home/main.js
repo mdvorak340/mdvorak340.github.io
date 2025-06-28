@@ -67,7 +67,7 @@ const DrawingCanvas = canvas(
         context.moveTo(...position)
         canvasMemory.push('M' + position.join(','))
     }),
-    on('mouseup', () => {
+    on('mouseup mouseout', () => {
         isDrawing = false
         storeCanvas()
     }),
@@ -77,13 +77,6 @@ const DrawingCanvas = canvas(
             context.lineTo(...position)
             context.stroke()
             canvasMemory.push('L' + position.join(','))
-        }
-    }),
-    on('mouseenter', (event) => {
-        if (isDrawing) {
-            const position = relativeXY(event, DrawingCanvas)
-            context.moveTo(...position)
-            canvasMemory.push('M' + position.join(','))
         }
     }),
 )
