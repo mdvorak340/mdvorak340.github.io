@@ -127,8 +127,8 @@ const Page = [
         dl(
             dt('Hostname'),
             dd(location.hostname || 'No host'),
-            dt('Port'),
-            dd(location.port || 'No host'),
+            dt('Port #'),
+            dd(location.port || 'No port number'),
         )
     ),
     section({ id: 'draw' },
