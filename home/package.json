@@ -1,8 +1,6 @@
 {
   "name": "homepage",
-  "version": "1.0.0",
   "description": "Browser homepage",
-  "main": "index.js",
   "scripts": {
       "build": "npx webpack"
   },

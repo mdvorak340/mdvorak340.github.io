@@ -30,7 +30,6 @@ body {
   @media (width < 700px) {
     grid-template:
       "head" min-content
-      "draw" 1fr
       "notes" 1fr
       "stats" min-content
       "dates" min-content
@@ -57,6 +56,9 @@ footer {
 
 #draw {
   grid-area: draw;
+  @media (width < 700px) {
+    display: none;
+  }
 }
 
 #notes {
@@ -116,34 +118,40 @@ button {
   letter-spacing: 0.05rem;
 }
 
-section {
-  overflow: auto;
-}
-
 div.loading {
-    position: fixed;
-    left:50%;
-    top:50%;
-    transform: translate(-50%, -50%);
-    font-size: 5rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
 }
 
 div.loading span {
-    animation: load 1.5s infinite;
+  animation: load 1.5s infinite;
 }
 
 div.loading span:nth-child(2) {
-    animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 div.loading span:nth-child(3) {
-    animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 @keyframes load {
-    0% {opacity: 1;}
-    30% {opacity: 0.3;}
-    50% {opacity: 1;}
-    70% {opacity: 0.3;}
-    100% {opacity: 1;}
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
