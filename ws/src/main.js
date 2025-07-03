@@ -6,7 +6,7 @@ const knownWebSockets = [
 
 const ConnectionOptions = datalist(
   { id: 'connection-options' },
-  ...knownWebSockets.map((ws) => option({ value: ws })),
+  knownWebSockets.map((ws) => option({ value: ws })),
 )
 
 const ConnectionInput = input({
@@ -121,8 +121,7 @@ const Doc = [
   ),
   main(
     form(
-      on('click', handleForm),
-      on('keydown', handleForm),
+      on('click keydown', handleForm),
       fieldset(
         legend('Input'),
         label('Connection URL', { for: ConnectionInput.id }),
@@ -154,7 +153,7 @@ const Doc = [
     ),
     details(
       summary('Sources'),
-      ul(...Sources.map((source) => li(source))),
+      ul(Sources.map((source) => li(source))),
     ),
   ),
   footer(
