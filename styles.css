@@ -183,6 +183,11 @@ header {
   border-bottom:0.9rem double var(--primary);
 }
 
+header h1 {
+  text-align:center;
+  font-size:3.25rem;
+}
+
 header h1 * {
   animation:fancyfadein 0.7s;
   position:relative;

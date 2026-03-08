@@ -52,7 +52,8 @@
   </footer>
   <script>
     function toggleAudio(source) {
-      let audio = source.parentElement.querySelector('audio');
+      const audioBlock = source.parentElement;
+      const audio = audioBlock.querySelector('audio');
       if (!audio.paused) {
         audio.pause();
         audioBlock.classList.remove('playing');
